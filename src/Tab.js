@@ -1,23 +1,12 @@
 import React from "react";
-import { styled } from "@storybook/theming";
+import React from "react";
 import { useParameter } from "@storybook/api";
-import { Title, Source } from "@storybook/components";
 import { PARAM_KEY } from "./constants";
-
-export const TabWrapper = styled.div(({ theme }) => ({
-  background: theme.background.content,
-  padding: "4rem 20px",
-  minHeight: "100vh",
-  boxSizing: "border-box",
-}));
+import { TabContent } from "./components/TabContent";
 
 export const Tab = ({ active }) => {
-  const result = useParameter(PARAM_KEY, []);
+  // https://storybook.js.org/docs/react/addons/addons-api#useparameter
+  const paramData = useParameter(PARAM_KEY, []);
 
-  return active ? (
-    <TabWrapper>
-      <Title>My Addon </Title>
-      <Source code={result} language="jsx" format={false} />
-    </TabWrapper>
-  ) : null;
+  return active ? <TabContent code={paramData} /> : null;
 };
