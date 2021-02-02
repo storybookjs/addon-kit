@@ -68,22 +68,7 @@
     "supportedFrameworks": [
       "react",
       "vue",
-      "angular",
-      "web-components",
-      "ember",
-      "html",
-      "mithril",
-      "marko",
-      "svelte",
-      "riot",
-      "preact",
-      "rax",
-      "aurelia",
-      "marionette",
-      "react-native"
-    ],
-    "unsupportedFrameworks": [
-      "react-native"
+      "angular"
     ],
     "icon": "https://user-images.githubusercontent.com/321738/63501763-88dbf600-c4cc-11e9-96cd-94adadc2fd72.png"
   }
