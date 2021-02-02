@@ -1,0 +1,90 @@
+{
+  "name": "storybook-addon-kit",
+  "version": "1.0.0-rc.2",
+  "description": "everything you need to build a Storybook addon",
+  "keywords": [
+    "storybook-addons",
+    "pseudo states",
+    "style",
+    "test"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/storybookjs/storybook-addon-kit"
+  },
+  "author": "winkerVSbecks",
+  "license": "MIT",
+  "main": "dist/preset.js",
+  "files": [
+    "dist/**/*",
+    "README.md",
+    "*.js"
+  ],
+  "scripts": {
+    "clean": "rimraf ./dist",
+    "build": "babel ./src --out-dir ./dist",
+    "prepublish": "npm run clean && npm run build",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "storybook": "start-storybook -p 6006",
+    "start": "concurrently \"npm run storybook -- --no-manager-cache --quiet\" \"npm run build -- --watch\"",
+    "build-storybook": "build-storybook",
+    "release": "npm run build && auto shipit --base-branch=main",
+    "chromatic": "chromatic"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "@babel/cli": "^7.12.1",
+    "@babel/core": "^7.12.3",
+    "@babel/preset-env": "^7.12.1",
+    "@babel/preset-react": "^7.12.5",
+    "@storybook/react": "^6.1.14",
+    "auto": "^10.3.0",
+    "babel-loader": "^8.1.0",
+    "chromatic": "^5.6.0",
+    "concurrently": "^5.3.0",
+    "react": "^17.0.1",
+    "react-dom": "^17.0.1",
+    "rimraf": "^3.0.2"
+  },
+  "peerDependencies": {
+    "@storybook/addons": "^6.1.14",
+    "@storybook/api": "^6.1.14",
+    "@storybook/components": "^6.1.14",
+    "@storybook/core-events": "^6.1.14",
+    "@storybook/theming": "^6.1.14",
+    "react": "^16.8.0 || ^17.0.0",
+    "react-dom": "^16.8.0 || ^17.0.0"
+  },
+  "peerDependenciesMeta": {
+    "react": {
+      "optional": true
+    },
+    "react-dom": {
+      "optional": true
+    }
+  },
+  "storybook": {
+    "displayName": "Addon Kit",
+    "supportedFrameworks": [
+      "react",
+      "vue",
+      "angular",
+      "web-components",
+      "ember",
+      "html",
+      "mithril",
+      "marko",
+      "svelte",
+      "riot",
+      "preact",
+      "rax",
+      "aurelia",
+      "marionette",
+      "react-native"
+    ],
+    "unsupportedFrameworks": [
+      "react-native"
+    ],
+    "icon": "https://user-images.githubusercontent.com/321738/63501763-88dbf600-c4cc-11e9-96cd-94adadc2fd72.png"
+  }
+}
