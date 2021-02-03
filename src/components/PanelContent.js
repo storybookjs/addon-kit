@@ -23,8 +23,9 @@ export const PanelContent = ({ results, onClick }) => (
     >
       <Placeholder>
         <Fragment>
-          Addons can gather details about how a story is rendered. Click the
-          button below communicate via channels.
+          Addons can gather details about how a story is rendered. This is panel
+          uses a tab pattern. Click the button below to fetch data for the other
+          two tabs.
         </Fragment>
         <Fragment>
           <RequestDataButton secondary small onClick={onClick}>
