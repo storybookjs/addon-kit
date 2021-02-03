@@ -1,5 +1,4 @@
 import React from "react";
-import React from "react";
 import { useParameter } from "@storybook/api";
 import { PARAM_KEY } from "./constants";
 import { TabContent } from "./components/TabContent";
