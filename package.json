@@ -28,8 +28,7 @@
     "storybook": "start-storybook -p 6006",
     "start": "concurrently \"npm run storybook -- --no-manager-cache --quiet\" \"npm run build -- --watch\"",
     "build-storybook": "build-storybook",
-    "release": "npm run build && auto shipit --base-branch=main",
-    "chromatic": "chromatic"
+    "release": "npm run build && auto shipit --base-branch=main"
   },
   "dependencies": {},
   "devDependencies": {
