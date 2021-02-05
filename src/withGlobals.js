@@ -32,7 +32,7 @@ function displayToolState(selector, state) {
   }
 
   preElement.innerText = `This snippet is injected by the withGlobals decorator.
-It updates as the user interacts with the ⚡ tool.
+It updates as the user interacts with the ⚡ tool in the toolbar above.
 
 ${JSON.stringify(state, null, 2)}
 `;

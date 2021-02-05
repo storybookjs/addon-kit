@@ -11,7 +11,7 @@ export const RequestDataButton = styled(Button)({
  * Checkout https://github.com/storybookjs/storybook/blob/next/addons/jest/src/components/Panel.tsx
  * for a real world example
  */
-export const PanelContent = ({ results, onClick }) => (
+export const PanelContent = ({ results, fetchData, clearData }) => (
   <TabsState
     initial="overview"
     backgroundColor={convert(themes.normal).background.hoverable}
@@ -28,8 +28,17 @@ export const PanelContent = ({ results, onClick }) => (
           two tabs.
         </Fragment>
         <Fragment>
-          <RequestDataButton secondary small onClick={onClick}>
+          <RequestDataButton
+            secondary
+            small
+            onClick={fetchData}
+            style={{ marginRight: 16 }}
+          >
             Request data
+          </RequestDataButton>
+
+          <RequestDataButton outline small onClick={clearData}>
+            Clear data
           </RequestDataButton>
         </Fragment>
       </Placeholder>

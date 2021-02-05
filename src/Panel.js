@@ -18,7 +18,11 @@ export const Panel = (props) => {
 
   return (
     <AddonPanel {...props}>
-      <PanelContent results={results} onClick={() => emit(EVENTS.REQUEST)} />
+      <PanelContent
+        results={results}
+        fetchData={() => emit(EVENTS.REQUEST)}
+        clearData={() => emit(EVENTS.CLEAR)}
+      />
     </AddonPanel>
   );
 };
