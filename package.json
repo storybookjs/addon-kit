@@ -1,10 +1,9 @@
 {
   "name": "storybook-addon-kit",
-  "version": "1.0.0-rc.2",
+  "version": "1.0.0",
   "description": "everything you need to build a Storybook addon",
   "keywords": [
     "storybook-addons",
-    "pseudo states",
     "style",
     "test"
   ],
@@ -30,7 +29,6 @@
     "build-storybook": "build-storybook",
     "release": "npm run build && auto shipit --base-branch=main"
   },
-  "dependencies": {},
   "devDependencies": {
     "@babel/cli": "^7.12.1",
     "@babel/core": "^7.12.3",

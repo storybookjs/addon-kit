@@ -13,17 +13,27 @@ export default {
   },
 };
 
-const Template = (args) => <Button {...args}>Label</Button>;
+const Template = (args) => <Button {...args} />;
 
-export const All = () => <Button>Normal</Button>;
+export const Primary = Template.bind({});
+Primary.args = {
+  primary: true,
+  label: "Button",
+};
 
-export const Default = Template.bind({});
+export const Secondary = Template.bind({});
+Secondary.args = {
+  label: "Button",
+};
 
-export const Hover = Template.bind({});
-Hover.args = { pseudo: { hover: true } };
+export const Large = Template.bind({});
+Large.args = {
+  size: "large",
+  label: "Button",
+};
 
-export const Focus = Template.bind({});
-Focus.args = { pseudo: { focus: true } };
-
-export const Active = Template.bind({});
-Active.args = { pseudo: { active: true } };
+export const Small = Template.bind({});
+Small.args = {
+  size: "small",
+  label: "Button",
+};
