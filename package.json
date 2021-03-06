@@ -59,6 +59,9 @@
       "optional": true
     }
   },
+  "publishConfig": {
+    "access": "public"
+  },
   "storybook": {
     "displayName": "Addon Kit",
     "supportedFrameworks": [
