@@ -1,6 +1,6 @@
 {
   "name": "storybook-addon-kit",
-  "version": "1.0.0",
+  "version": "0.0.0",
   "description": "everything you need to build a Storybook addon",
   "keywords": [
     "storybook-addons",
@@ -22,12 +22,11 @@
   "scripts": {
     "clean": "rimraf ./dist",
     "build": "babel ./src --out-dir ./dist",
-    "prepublish": "npm run clean && npm run build",
     "test": "echo \"Error: no test specified\" && exit 1",
     "storybook": "start-storybook -p 6006",
     "start": "concurrently \"npm run storybook -- --no-manager-cache --quiet\" \"npm run build -- --watch\"",
     "build-storybook": "build-storybook",
-    "release": "npm run build && auto shipit --base-branch=main"
+    "release": "npm run build && auto shipit"
   },
   "devDependencies": {
     "@babel/cli": "^7.12.1",
