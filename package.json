@@ -13,7 +13,7 @@
   },
   "author": "winkerVSbecks",
   "license": "MIT",
-  "main": "dist/preset.js",
+  "main": "dist/preset",
   "files": [
     "dist/**/*",
     "README.md",
