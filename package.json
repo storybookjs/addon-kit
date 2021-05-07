@@ -21,7 +21,9 @@
   ],
   "scripts": {
     "clean": "rimraf ./dist",
-    "build": "babel ./src --out-dir ./dist",
+    "buildBabel": "babel ./src --out-dir ./dist --extensions \".js,.jsx,.ts,.tsx\"",
+    "buildTsc": "tsc --declaration --emitDeclarationOnly --outDir ./dist",
+    "build": "concurrently \"npm run buildBabel\" \"npm run buildTsc\"",
     "test": "echo \"Error: no test specified\" && exit 1",
     "storybook": "start-storybook -p 6006",
     "start": "concurrently \"npm run storybook -- --no-manager-cache --quiet\" \"npm run build -- --watch\"",
@@ -34,6 +36,7 @@
     "@babel/core": "^7.12.3",
     "@babel/preset-env": "^7.12.1",
     "@babel/preset-react": "^7.12.5",
+    "@babel/preset-typescript": "^7.13.0",
     "@storybook/react": "^6.1.14",
     "auto": "^10.3.0",
     "babel-loader": "^8.1.0",
@@ -41,7 +44,8 @@
     "concurrently": "^5.3.0",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
-    "rimraf": "^3.0.2"
+    "rimraf": "^3.0.2",
+    "typescript": "^4.2.4"
   },
   "peerDependencies": {
     "@storybook/addons": "^6.1.14",
