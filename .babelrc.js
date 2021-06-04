@@ -4,4 +4,16 @@ module.exports = {
     "@babel/preset-typescript",
     "@babel/preset-react",
   ],
+  env: {
+    esm: {
+      presets: [
+        [
+          "@babel/env",
+          {
+            modules: false,
+          },
+        ],
+      ],
+    },
+  },
 };

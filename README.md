@@ -8,6 +8,7 @@ Simplify the creation of Storybook addons
 - 🏷 Plugin metadata
 - 🚢 Release management with [Auto](https://github.com/intuit/auto)
 - 🧺 Boilerplate and sample code
+- 🛄 ESM support
 
 ## Getting Started
 
@@ -18,13 +19,13 @@ Click the **Use this template** button to get started.
 Clone your repository and install dependencies.
 
 ```sh
-npm install
+yarn
 ```
 
 ### Development scripts
 
-- `npm run start` runs babel in watch mode and starts Storybook
-- `npm run build` build and package your addon code
+- `yarn start` runs babel in watch mode and starts Storybook
+- `yarn build` build and package your addon code
 
 ## What's included?
 
@@ -95,7 +96,7 @@ Go to `Settings > Secrets`, click `New repository secret`, and add your `NPM_TOK
 To create a release locally you can run the following command, otherwise the GitHub action will make the release for you.
 
 ```sh
-npm run release
+yarn release
 ```
 
 That will:
