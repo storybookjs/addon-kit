@@ -35,8 +35,9 @@
     "storybook": "start-storybook -p 6006",
     "start": "concurrently \"yarn build:watch\" \"yarn storybook -- --no-manager-cache --quiet\"",
     "build-storybook": "build-storybook",
-    "prerelease": "node check-metadata.js",
-    "release": "yarn build && auto shipit"
+    "prerelease": "node scripts/check-metadata.js",
+    "release": "yarn build && auto shipit",
+    "ejectTS": "zx scripts/eject-typescript.mjs"
   },
   "devDependencies": {
     "@babel/cli": "^7.12.1",
@@ -49,10 +50,12 @@
     "babel-loader": "^8.1.0",
     "chalk": "^4.1.1",
     "concurrently": "^6.2.0",
+    "prettier": "^2.3.1",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
     "rimraf": "^3.0.2",
-    "typescript": "^4.2.4"
+    "typescript": "^4.2.4",
+    "zx": "^1.14.1"
   },
   "peerDependencies": {
     "@storybook/addons": "^6.2.9",
