@@ -7,11 +7,26 @@ export const RequestDataButton = styled(Button)({
   marginTop: "1rem",
 });
 
+type Results = {
+  danger: any[];
+  warning: any[];
+};
+
+type PanelContentProps = {
+  results: Results;
+  fetchData: () => void;
+  clearData: () => void;
+};
+
 /**
  * Checkout https://github.com/storybookjs/storybook/blob/next/addons/jest/src/components/Panel.tsx
  * for a real world example
  */
-export const PanelContent = ({ results, fetchData, clearData }) => (
+export const PanelContent = ({
+  results,
+  fetchData,
+  clearData,
+}: PanelContentProps) => (
   <TabsState
     initial="overview"
     backgroundColor={convert(themes.normal).background.hoverable}
