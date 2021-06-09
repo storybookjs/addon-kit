@@ -56,11 +56,11 @@ type Item = {
   description: string;
 };
 
-type ListItemProps = {
+interface ListItemProps {
   item: Item;
-};
+}
 
-export const ListItem = ({ item }: ListItemProps) => {
+export const ListItem: React.FC<ListItemProps> = ({ item }) => {
   const [open, onToggle] = useState(false);
 
   return (
@@ -82,11 +82,11 @@ export const ListItem = ({ item }: ListItemProps) => {
   );
 };
 
-type ListProps = {
+interface ListProps {
   items: Item[];
-};
+}
 
-export const List = ({ items }: ListProps) => (
+export const List: React.FC<ListProps> = ({ items }) => (
   <ListWrapper>
     {items.map((item, idx) => (
       <ListItem key={idx} item={item}></ListItem>

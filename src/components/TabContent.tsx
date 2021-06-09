@@ -15,11 +15,11 @@ const TabInner = styled.div({
   marginRight: "auto",
 });
 
-type TabContentProps = {
+interface TabContentProps {
   code: string;
-};
+}
 
-export const TabContent = ({ code }: TabContentProps) => (
+export const TabContent: React.FC<TabContentProps> = ({ code }) => (
   <TabWrapper>
     <TabInner>
       <Title>My Addon</Title>

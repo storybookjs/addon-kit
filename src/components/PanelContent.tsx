@@ -12,21 +12,21 @@ type Results = {
   warning: any[];
 };
 
-type PanelContentProps = {
+interface PanelContentProps {
   results: Results;
   fetchData: () => void;
   clearData: () => void;
-};
+}
 
 /**
  * Checkout https://github.com/storybookjs/storybook/blob/next/addons/jest/src/components/Panel.tsx
  * for a real world example
  */
-export const PanelContent = ({
+export const PanelContent: React.FC<PanelContentProps> = ({
   results,
   fetchData,
   clearData,
-}: PanelContentProps) => (
+}) => (
   <TabsState
     initial="overview"
     backgroundColor={convert(themes.normal).background.hoverable}

@@ -30,7 +30,7 @@ yarn
 
 ### Switch from TypeScript to JavaScript
 
-Don't want to use TypeScript? We offer a handy eject command: `yarn ejectTS`
+Don't want to use TypeScript? We offer a handy eject command: `yarn eject-ts`
 
 This will convert all code to JS. It is a destructive process, so we recommended running this before you start writing any code.
 

@@ -1,12 +1,12 @@
 #!/usr/bin/env zx
 
 // Copy TS files and delete src
-await $`cp -r ./src ./srcJS`;
+await $`cp -r ./src ./srcTS`;
 await $`rm -rf ./src`;
 await $`mkdir ./src`;
 
 // Convert TS code to JS
-await $`babel --no-babelrc --presets @babel/preset-typescript ./srcJS -d ./src --extensions \".js,.jsx,.ts,.tsx\" --ignore "./srcJS/typings.d.ts"`;
+await $`babel --no-babelrc --presets @babel/preset-typescript ./srcTS -d ./src --extensions \".js,.jsx,.ts,.tsx\" --ignore "./srcTS/typings.d.ts"`;
 
 // Format the newly created .js files
 await $`prettier --write ./src`;
@@ -19,7 +19,7 @@ await $`touch ./src/typings.d.ts`;
 await $`printf 'declare module "global";' >> ./src/typings.d.ts`;
 
 // Clean up
-await $`rm -rf ./srcJS`;
+await $`rm -rf ./srcTS`;
 
 console.log(
   chalk.green.bold`
