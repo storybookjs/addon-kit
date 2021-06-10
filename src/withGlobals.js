@@ -9,7 +9,7 @@ export const withGlobals = (StoryFn, context) => {
   useEffect(() => {
     // Execute your side effect here
     // For example, to manipulate the contents of the preview
-    const selectorId = isInDocs ? `#anchor--${context.id} .docs-story` : `root`;
+    const selectorId = isInDocs ? `#anchor--${context.id} .docs-story` : `#root`;
 
     displayToolState(selectorId, { myAddon, isInDocs });
   }, [myAddon]);
@@ -18,7 +18,7 @@ export const withGlobals = (StoryFn, context) => {
 };
 
 function displayToolState(selector, state) {
-  const rootElement = document.getElementById(selector);
+  const rootElement = document.querySelector(selector);
   let preElement = rootElement.querySelector("pre");
 
   if (!preElement) {
