@@ -13,7 +13,10 @@ export const withGlobals = (StoryFn: StoryFunction, context: StoryContext) => {
       ? `#anchor--${context.id} .docs-story`
       : `#root`;
 
-    displayToolState(selectorId, { myAddon, isInDocs });
+    displayToolState(selectorId, {
+      myAddon,
+      isInDocs,
+    });
   }, [myAddon]);
 
   return StoryFn();

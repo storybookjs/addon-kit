@@ -45,6 +45,7 @@
     "@babel/preset-env": "^7.12.1",
     "@babel/preset-react": "^7.12.5",
     "@babel/preset-typescript": "^7.13.0",
+    "@storybook/addon-essentials": "^6.2.9",
     "@storybook/react": "^6.2.9",
     "auto": "^10.3.0",
     "babel-loader": "^8.1.0",
