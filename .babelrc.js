@@ -8,7 +8,7 @@ module.exports = {
     esm: {
       presets: [
         [
-          "@babel/env",
+          "@babel/preset-env",
           {
             modules: false,
           },

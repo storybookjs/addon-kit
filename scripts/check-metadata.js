@@ -1,7 +1,7 @@
 #!/usr/local/bin/node
 
 const chalk = require("chalk");
-const packageJson = require("./package.json");
+const packageJson = require("../package.json");
 
 const name = packageJson.name;
 const displayName = packageJson.storybook.displayName;

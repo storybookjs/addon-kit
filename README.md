@@ -9,6 +9,7 @@ Simplify the creation of Storybook addons
 - 🚢 Release management with [Auto](https://github.com/intuit/auto)
 - 🧺 Boilerplate and sample code
 - 🛄 ESM support
+- 🛂 TypeScript by default with option to eject to JS
 
 ## Getting Started
 
@@ -26,6 +27,12 @@ yarn
 
 - `yarn start` runs babel in watch mode and starts Storybook
 - `yarn build` build and package your addon code
+
+### Switch from TypeScript to JavaScript
+
+Don't want to use TypeScript? We offer a handy eject command: `yarn eject-ts`
+
+This will convert all code to JS. It is a destructive process, so we recommended running this before you start writing any code.
 
 ## What's included?
 

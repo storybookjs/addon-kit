@@ -1,6 +1,6 @@
 import React, { Fragment, useState } from "react";
 import { styled, themes, convert } from "@storybook/theming";
-import { Icons } from "@storybook/components";
+import { Icons, IconsProps } from "@storybook/components";
 
 const ListWrapper = styled.ul({
   listStyle: "none",
@@ -18,7 +18,7 @@ const Wrapper = styled.div({
   },
 });
 
-const Icon = styled(Icons)({
+const Icon = styled(Icons)<IconsProps>({
   height: 10,
   width: 10,
   minWidth: 10,
@@ -51,7 +51,16 @@ const Description = styled.div({
   fontStyle: "italic",
 });
 
-export const ListItem = ({ item }) => {
+type Item = {
+  title: string;
+  description: string;
+};
+
+interface ListItemProps {
+  item: Item;
+}
+
+export const ListItem: React.FC<ListItemProps> = ({ item }) => {
   const [open, onToggle] = useState(false);
 
   return (
@@ -60,7 +69,6 @@ export const ListItem = ({ item }) => {
         <HeaderBar onClick={() => onToggle(!open)} role="button">
           <Icon
             icon="chevrondown"
-            size={10}
             color={convert(themes.normal).appBorderColor}
             style={{
               transform: `rotate(${open ? 0 : -90}deg)`,
@@ -74,7 +82,11 @@ export const ListItem = ({ item }) => {
   );
 };
 
-export const List = ({ items }) => (
+interface ListProps {
+  items: Item[];
+}
+
+export const List: React.FC<ListProps> = ({ items }) => (
   <ListWrapper>
     {items.map((item, idx) => (
       <ListItem key={idx} item={item}></ListItem>

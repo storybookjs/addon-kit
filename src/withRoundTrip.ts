@@ -1,8 +1,9 @@
+import { StoryFn as StoryFunction } from "@storybook/addons";
 import { useChannel } from "@storybook/client-api";
 import { STORY_CHANGED } from "@storybook/core-events";
 import { EVENTS } from "./constants";
 
-export const withRoundTrip = (storyFn) => {
+export const withRoundTrip = (storyFn: StoryFunction) => {
   const emit = useChannel({
     [EVENTS.REQUEST]: () => {
       emit(EVENTS.RESULT, {

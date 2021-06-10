@@ -9,13 +9,17 @@ const TabWrapper = styled.div(({ theme }) => ({
   boxSizing: "border-box",
 }));
 
-const TabInner = styled.div(({ theme }) => ({
+const TabInner = styled.div({
   maxWidth: 768,
   marginLeft: "auto",
   marginRight: "auto",
-}));
+});
 
-export const TabContent = ({ code }) => (
+interface TabContentProps {
+  code: string;
+}
+
+export const TabContent: React.FC<TabContentProps> = ({ code }) => (
   <TabWrapper>
     <TabInner>
       <Title>My Addon</Title>
