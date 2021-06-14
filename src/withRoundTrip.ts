@@ -1,5 +1,4 @@
-import { StoryFn as StoryFunction } from "@storybook/addons";
-import { useChannel } from "@storybook/client-api";
+import { StoryFn as StoryFunction, useChannel } from "@storybook/addons";
 import { STORY_CHANGED } from "@storybook/core-events";
 import { EVENTS } from "./constants";
 
