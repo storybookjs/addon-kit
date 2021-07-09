@@ -15,7 +15,7 @@ Simplify the creation of Storybook addons
 
 Click the **Use this template** button to get started.
 
-![](https://user-images.githubusercontent.com/42671/106809879-35b32000-663a-11eb-9cdc-89f178b5273f.gif)
+![](https://user-images.githubusercontent.com/321738/125058439-8d9ef880-e0aa-11eb-9211-e6d7be812959.gif)
 
 Clone your repository and install dependencies.
 
