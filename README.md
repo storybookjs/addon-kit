@@ -98,7 +98,7 @@ This template comes with GitHub actions already set up to publish your addon any
 
 Go to `Settings > Secrets`, click `New repository secret`, and add your `NPM_TOKEN`.
 
-### Creating a releasing
+### Creating a release
 
 To create a release locally you can run the following command, otherwise the GitHub action will make the release for you.
 
