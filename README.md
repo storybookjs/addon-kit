@@ -1,3 +1,5 @@
+<!-- README START -->
+
 # Storybook Addon Kit
 
 Simplify the creation of Storybook addons
@@ -22,6 +24,8 @@ Clone your repository and install dependencies.
 ```sh
 yarn
 ```
+
+<!-- README END -->
 
 ### Development scripts
 
