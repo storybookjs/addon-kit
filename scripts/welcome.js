@@ -30,8 +30,12 @@ const questions = [
   {
     type: "text",
     name: "displayName",
-    message: "What is the addon display name?*",
-    validate: (name) => (name === "" ? "Display name can't be empty" : true),
+    message:
+      "What is the addon display name (this will be used in the addon catalog)?*",
+    validate: (name) =>
+      name === ""
+        ? "Display name can't be empty. For more info, see: https://storybook.js.org/docs/react/addons/addon-catalog#addon-metadata"
+        : true,
   },
   {
     type: "text",
@@ -69,7 +73,7 @@ const questions = [
     type: "list",
     name: "supportedFrameworks",
     initial:
-      "react, vue, angular, web-components, ember, html, svelte, preact, aurelia, marionette, react-native",
+      "react, vue, angular, web-components, ember, html, svelte, preact, react-native",
     message: "List of frameworks you support (comma separated)?",
     separator: ",",
     format: (frameworks) => frameworks.map((k) => `"${k}"`).join(", "),
