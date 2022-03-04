@@ -3,15 +3,13 @@
   "version": "0.0.0",
   "description": "everything you need to build a Storybook addon",
   "keywords": [
-    "storybook-addons",
-    "style",
-    "test"
+    "storybook-addons"
   ],
   "repository": {
     "type": "git",
     "url": "https://github.com/storybookjs/storybook-addon-kit"
   },
-  "author": "winkerVSbecks",
+  "author": "package-author",
   "license": "MIT",
   "main": "dist/cjs/index.js",
   "module": "dist/esm/index.js",
@@ -23,6 +21,7 @@
     "*.d.ts"
   ],
   "scripts": {
+    "postinstall": "node scripts/welcome.js",
     "clean": "rimraf ./dist",
     "buildBabel": "concurrently \"yarn buildBabel:cjs\" \"yarn buildBabel:esm\"",
     "buildBabel:cjs": "babel ./src -d ./dist/cjs --extensions \".js,.jsx,.ts,.tsx\"",
@@ -83,9 +82,7 @@
   "storybook": {
     "displayName": "Addon Kit",
     "supportedFrameworks": [
-      "react",
-      "vue",
-      "angular"
+      "supported-frameworks"
     ],
     "icon": "https://user-images.githubusercontent.com/321738/63501763-88dbf600-c4cc-11e9-96cd-94adadc2fd72.png"
   }
