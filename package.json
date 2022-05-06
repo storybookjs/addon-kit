@@ -5,6 +5,7 @@
   "keywords": [
     "storybook-addons"
   ],
+  "packageManager": "yarn@3.1.1",
   "engines": {
     "yarn": ">=2.0.0"
   },
