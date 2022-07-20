@@ -60,7 +60,7 @@ const questions = [
   {
     type: "list",
     name: "keywords",
-    initial: ["storybook-addons"],
+    initial: "storybook-addons",
     message: "Enter addon keywords (comma separated)",
     separator: ",",
     format: (keywords) =>
