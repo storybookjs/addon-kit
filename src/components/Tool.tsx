@@ -1,7 +1,7 @@
 import React, { useCallback } from "react";
 import { useGlobals } from "@storybook/api";
 import { Icons, IconButton } from "@storybook/components";
-import { TOOL_ID } from "./constants";
+import { TOOL_ID } from "../utils/constants";
 
 export const Tool = () => {
   const [{ myAddon }, updateGlobals] = useGlobals();

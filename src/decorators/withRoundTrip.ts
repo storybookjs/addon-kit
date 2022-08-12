@@ -1,7 +1,7 @@
 import { useChannel } from "@storybook/addons";
 import type { DecoratorFunction } from "@storybook/addons";
 import { STORY_CHANGED } from "@storybook/core-events";
-import { EVENTS } from "./constants";
+import { EVENTS } from "../utils/constants";
 
 export const withRoundTrip: DecoratorFunction = (storyFn) => {
   const emit = useChannel({
