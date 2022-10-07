@@ -5,6 +5,7 @@ export const withGlobals: DecoratorFunction = (StoryFn, context) => {
   const [{ myAddon }] = useGlobals();
   // Is the addon being used in the docs panel
   const isInDocs = context.viewMode === "docs";
+  const { theme } = context.globals;
 
   useEffect(() => {
     // Execute your side effect here
@@ -16,8 +17,9 @@ export const withGlobals: DecoratorFunction = (StoryFn, context) => {
     displayToolState(selectorId, {
       myAddon,
       isInDocs,
+      theme,
     });
-  }, [myAddon]);
+  }, [myAddon, theme]);
 
   return StoryFn();
 };
@@ -37,7 +39,7 @@ function displayToolState(selector: string, state: any) {
   }
 
   preElement.innerText = `This snippet is injected by the withGlobals decorator.
-It updates as the user interacts with the ⚡ tool in the toolbar above.
+It updates as the user interacts with the ⚡ or Theme tools in the toolbar above.
 
 ${JSON.stringify(state, null, 2)}
 `;
