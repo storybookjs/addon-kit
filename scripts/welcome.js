@@ -115,6 +115,7 @@ const main = async () => {
     displayName,
     keywords,
     supportedFrameworks,
+    feedback
   } = await prompts(questions);
 
   if (!authorName || !packageName) {
