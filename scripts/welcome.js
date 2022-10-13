@@ -145,7 +145,7 @@ const main = async () => {
 
   fs.writeFileSync(packageJson, packageJsonContents);
 
-  console.log("📝  Updating the README...");
+  console.log("📝 Updating the README...");
   const readme = path.resolve(__dirname, `../README.md`);
   let readmeContents = fs.readFileSync(readme, "utf-8");
 
@@ -166,7 +166,7 @@ const main = async () => {
 
   console.log(
     dedent`\n
-      🚀 All done! Run \`yarn start\` test to get started.
+      🚀 All done! Run \`yarn start\` to get started.
 
       Thanks for using this template, ${authorName.split(" ")[0]}! ❤️
 
