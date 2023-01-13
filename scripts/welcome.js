@@ -141,7 +141,7 @@ const main = async () => {
     .replace(REPLACE_TEMPLATES.repoUrl, repoUrl)
     .replace(REPLACE_TEMPLATES.displayName, displayName)
     .replace(REPLACE_TEMPLATES.supportedFrameworks, supportedFrameworks)
-    .replace('    "postinstall": "node scripts/welcome.js",\n', "");
+    .replace(/\s*"postinstall".*node.*scripts\/welcome.js.*",/, '');
 
   fs.writeFileSync(packageJson, packageJsonContents);
 
