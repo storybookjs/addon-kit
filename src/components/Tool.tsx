@@ -21,10 +21,6 @@ export const Tool = () => {
       title="Enable my addon"
       onClick={toggleMyTool}
     >
-      {/*
-        Checkout https://next--storybookjs.netlify.app/official-storybook/?path=/story/basics-icon--labels
-        for the full list of icons
-      */}
       <Icons icon="lightning" />
     </IconButton>
   );
