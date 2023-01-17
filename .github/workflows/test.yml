@@ -1,11 +1,10 @@
-name: Release
+name: Test
 
 on: [push]
 
 jobs:
   release:
     runs-on: ubuntu-latest
-    if: "!contains(github.event.head_commit.message, 'ci skip') && !contains(github.event.head_commit.message, 'skip ci')"
     steps:
       - uses: actions/checkout@v2
 
@@ -20,9 +19,10 @@ jobs:
       - name: Install dependencies
         uses: bahmutov/npm-install@v1
 
-      - name: Create Release
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+      - name: Run build
         run: |
-          yarn release
+          yarn build
+
+      - name: Run build
+        run: |
+          yarn build-storybook
