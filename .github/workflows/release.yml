@@ -18,7 +18,7 @@ jobs:
           node-version: 16.x
 
       - name: Install dependencies
-        uses: bahmutov/npm-install@v1
+        run: yarn install --ignore-scripts
 
       - name: Create Release
         env:
