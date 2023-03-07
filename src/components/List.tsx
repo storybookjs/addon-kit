@@ -68,7 +68,7 @@ export const ListItem: React.FC<ListItemProps> = ({ item }) => {
       <Wrapper>
         <HeaderBar onClick={() => onToggle(!open)} role="button">
           <Icon
-            icon="chevrondown"
+            icon="arrowdown"
             color={convert(themes.normal).appBorderColor}
             style={{
               transform: `rotate(${open ? 0 : -90}deg)`,
