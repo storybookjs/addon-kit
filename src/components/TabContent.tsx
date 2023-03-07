@@ -1,6 +1,6 @@
 import React from "react";
 import { styled } from "@storybook/theming";
-import { H1, Link } from "@storybook/components";
+import { H1, Link, Code } from "@storybook/components";
 
 const TabWrapper = styled.div(({ theme }) => ({
   background: theme.background.content,
@@ -34,17 +34,14 @@ export const TabContent: React.FC<TabContentProps> = ({ code }) => (
       <p>
         You have full control over what content is being rendered here. You can
         use components from{" "}
-        <Link href="https://github.com/storybookjs/storybook/tree/master/lib/components">
+        <Link href="https://github.com/storybookjs/storybook/tree/next/code/ui/components">
           @storybook/components
         </Link>{" "}
         to match the look and feel of Storybook, for example the{" "}
-        <code>&lt;Source /&gt;</code> component below. Or build a completely
+        <code>&lt;Code /&gt;</code> component below. Or build a completely
         custom UI.
       </p>
-      <pre>
-        <code>{code}</code>
-      </pre>
-      {/* <Source code={code} language="jsx" format={false} /> */}
+      <Code>{code}</Code>
     </TabInner>
   </TabWrapper>
 );
