@@ -1,6 +1,6 @@
 <!-- README START -->
 
-# Storybook Addon Kit
+# Storybook Addon Kit ([demo](https://main--601ada52c3d4040021afdc30.chromatic.com))
 
 Simplify the creation of Storybook addons
 
