@@ -48,7 +48,7 @@ The addon code lives in `src`. It demonstrates all core addon related concepts. 
 - `src/Panel.js`
 - `src/Tab.js`
 
-Which, along with the addon itself, are registered in `src/preset/manager.js`.
+Which, along with the addon itself, are registered in `src/manager.js`.
 
 Managing State and interacting with a story:
 
@@ -56,7 +56,7 @@ Managing State and interacting with a story:
 - `src/withRoundTrip.js` & `src/Panel.js` demonstrates two-way communication using channels.
 - `src/Tab.js` demonstrates how to use `useParameter` to access the current story's parameters.
 
-Your addon might use one or more of these patterns. Feel free to delete unused code. Update `src/preset/manager.js` and `src/preset/preview.js` accordingly.
+Your addon might use one or more of these patterns. Feel free to delete unused code. Update `src/manager.js` and `src/preview.js` accordingly.
 
 Lastly, configure you addon name in `src/constants.js`.
 

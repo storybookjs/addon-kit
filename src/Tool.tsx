@@ -10,8 +10,6 @@ export const Tool = memo(function MyAddonSelector() {
   const isActive = [true, "true"].includes(globals[PARAM_KEY]);
 
   const toggleMyTool = useCallback(() => {
-    console.log(globals, PARAM_KEY);
-
     updateGlobals({
       [PARAM_KEY]: !isActive,
     });
