@@ -1883,15 +1883,6 @@
     memoizerific "^1.11.3"
     prop-types "^15.7.2"
 
-"@storybook/addons@7.0.0-beta.62":
-  version "7.0.0-beta.62"
-  resolved "https://registry.yarnpkg.com/@storybook/addons/-/addons-7.0.0-beta.62.tgz#8c97f775ac09ca599120a01dba9d9d44bb4c425b"
-  integrity sha512-KjYEdwzgeencUnmegMA4iTW/Rwa3sYvhKBIscHjJ+KAbb8rwYZyL4phJkhglWGQtLA20prNyI7Qir6lxhheWPw==
-  dependencies:
-    "@storybook/manager-api" "7.0.0-beta.62"
-    "@storybook/preview-api" "7.0.0-beta.62"
-    "@storybook/types" "7.0.0-beta.62"
-
 "@storybook/api@7.0.0-beta.62":
   version "7.0.0-beta.62"
   resolved "https://registry.yarnpkg.com/@storybook/api/-/api-7.0.0-beta.62.tgz#e090558f8b6f1ba6cbeefce6bd69c28e59517ed9"
