@@ -56,7 +56,7 @@ Managing State and interacting with a story:
 - `src/withRoundTrip.js` & `src/Panel.js` demonstrates two-way communication using channels.
 - `src/Tab.js` demonstrates how to use `useParameter` to access the current story's parameters.
 
-Your addon might use one or more of these patterns. Feel free to delete unused code. Update `src/manager.js` and `src/preview.js` accordingly.
+Your addon might use one or more of these patterns. Feel free to delete unused code. Update `src/manager.ts` and `src/preview.ts` accordingly.
 
 Lastly, configure you addon name in `src/constants.js`.
 
