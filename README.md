@@ -48,7 +48,7 @@ The addon code lives in `src`. It demonstrates all core addon related concepts. 
 - `src/Panel.js`
 - `src/Tab.js`
 
-Which, along with the addon itself, are registered in `src/manager.js`.
+Which, along with the addon itself, are registered in `src/manager.ts`.
 
 Managing State and interacting with a story:
 
