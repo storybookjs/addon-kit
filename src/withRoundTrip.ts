@@ -1,4 +1,4 @@
-import { useChannel } from "@storybook/addons";
+import { useChannel } from "@storybook/preview-api";
 import type {
   Renderer,
   PartialStoryFn as StoryFunction,

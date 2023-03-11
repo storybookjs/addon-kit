@@ -3,7 +3,7 @@ import type {
   PartialStoryFn as StoryFunction,
   StoryContext,
 } from "@storybook/types";
-import { useEffect, useGlobals } from "@storybook/addons";
+import { useEffect, useGlobals } from "@storybook/preview-api";
 import { PARAM_KEY } from "./constants";
 
 export const withGlobals = (
