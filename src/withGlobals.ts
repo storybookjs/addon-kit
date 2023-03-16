@@ -1,8 +1,17 @@
-import type { DecoratorFunction } from "@storybook/addons";
-import { useEffect, useGlobals } from "@storybook/addons";
+import type {
+  Renderer,
+  PartialStoryFn as StoryFunction,
+  StoryContext,
+} from "@storybook/types";
+import { useEffect, useGlobals } from "@storybook/preview-api";
+import { PARAM_KEY } from "./constants";
 
-export const withGlobals: DecoratorFunction = (StoryFn, context) => {
-  const [{ myAddon }] = useGlobals();
+export const withGlobals = (
+  StoryFn: StoryFunction<Renderer>,
+  context: StoryContext<Renderer>
+) => {
+  const [globals] = useGlobals();
+  const myAddon = globals[PARAM_KEY];
   // Is the addon being used in the docs panel
   const isInDocs = context.viewMode === "docs";
   const { theme } = context.globals;
@@ -10,11 +19,11 @@ export const withGlobals: DecoratorFunction = (StoryFn, context) => {
   useEffect(() => {
     // Execute your side effect here
     // For example, to manipulate the contents of the preview
-    const selectorId = isInDocs
-      ? `#anchor--${context.id} .docs-story`
-      : `#root`;
+    const selector = isInDocs
+      ? `#anchor--${context.id} .sb-story`
+      : "#storybook-root";
 
-    displayToolState(selectorId, {
+    displayToolState(selector, {
       myAddon,
       isInDocs,
       theme,
@@ -25,22 +34,28 @@ export const withGlobals: DecoratorFunction = (StoryFn, context) => {
 };
 
 function displayToolState(selector: string, state: any) {
-  const rootElement = document.querySelector(selector);
-  let preElement = rootElement.querySelector("pre");
+  const rootElements = document.querySelectorAll(selector);
 
-  if (!preElement) {
-    preElement = document.createElement("pre");
-    preElement.style.setProperty("margin-top", "2rem");
-    preElement.style.setProperty("padding", "1rem");
-    preElement.style.setProperty("background-color", "#eee");
-    preElement.style.setProperty("border-radius", "3px");
-    preElement.style.setProperty("max-width", "600px");
-    rootElement.appendChild(preElement);
-  }
+  rootElements.forEach((rootElement) => {
+    let preElement = rootElement.querySelector<HTMLPreElement>(
+      `${selector} pre`
+    );
 
-  preElement.innerText = `This snippet is injected by the withGlobals decorator.
+    if (!preElement) {
+      preElement = document.createElement("pre");
+      preElement.style.setProperty("margin-top", "2rem");
+      preElement.style.setProperty("padding", "1rem");
+      preElement.style.setProperty("background-color", "#eee");
+      preElement.style.setProperty("border-radius", "3px");
+      preElement.style.setProperty("max-width", "600px");
+      preElement.style.setProperty("overflow", "scroll");
+      rootElement.appendChild(preElement);
+    }
+
+    preElement.innerText = `This snippet is injected by the withGlobals decorator.
 It updates as the user interacts with the ⚡ or Theme tools in the toolbar above.
 
 ${JSON.stringify(state, null, 2)}
 `;
+  });
 }

@@ -1,17 +1,27 @@
 <!-- README START -->
 
-# Storybook Addon Kit
+# Storybook Addon Kit ([demo](https://main--601ada52c3d4040021afdc30.chromatic.com))
 
 Simplify the creation of Storybook addons
 
 - 📝 Live-editing in development
 - ⚛️ React/JSX support
-- 📦 Transpiling and bundling with Babel
+- 📦 Transpiling and bundling with [tsup](https://tsup.egoist.dev/)
 - 🏷 Plugin metadata
 - 🚢 Release management with [Auto](https://github.com/intuit/auto)
 - 🧺 Boilerplate and sample code
 - 🛄 ESM support
 - 🛂 TypeScript by default with option to eject to JS
+
+### Migrating from Storybook 6.x to 7
+
+Note, if you're looking to upgrade your addon from Storybook 6.x to 7, please refer to the [migration guide](https://github.com/storybookjs/storybook/blob/next/MIGRATION.md#70-addon-authors-changes). The major changes are:
+
+- `register.js` was removed
+- No more default export from `@storybook/addons`
+- `@storybook/api` has been split into `@storybook/preview-api` and `@storybook/manager-api`
+
+Skip this section if you're bootstrapping a new addon.
 
 ## Getting Started
 
@@ -44,21 +54,21 @@ This will convert all code to JS. It is a destructive process, so we recommended
 
 The addon code lives in `src`. It demonstrates all core addon related concepts. The three [UI paradigms](https://storybook.js.org/docs/react/addons/addon-types#ui-based-addons)
 
-- `src/Tool.js`
-- `src/Panel.js`
-- `src/Tab.js`
+- `src/Tool.tsx`
+- `src/Panel.tsx`
+- `src/Tab.tsx`
 
-Which, along with the addon itself, are registered in `src/preset/manager.js`.
+Which, along with the addon itself, are registered in `src/manager.ts`.
 
 Managing State and interacting with a story:
 
-- `src/withGlobals.js` & `src/Tool.js` demonstrates how to use `useGlobals` to manage global state and modify the contents of a Story.
-- `src/withRoundTrip.js` & `src/Panel.js` demonstrates two-way communication using channels.
-- `src/Tab.js` demonstrates how to use `useParameter` to access the current story's parameters.
+- `src/withGlobals.ts` & `src/Tool.tsx` demonstrates how to use `useGlobals` to manage global state and modify the contents of a Story.
+- `src/withRoundTrip.ts` & `src/Panel.tsx` demonstrates two-way communication using channels.
+- `src/Tab.tsx` demonstrates how to use `useParameter` to access the current story's parameters.
 
-Your addon might use one or more of these patterns. Feel free to delete unused code. Update `src/preset/manager.js` and `src/preset/preview.js` accordingly.
+Your addon might use one or more of these patterns. Feel free to delete unused code. Update `src/manager.ts` and `src/preview.ts` accordingly.
 
-Lastly, configure you addon name in `src/constants.js`.
+Lastly, configure you addon name in `src/constants.ts`.
 
 ### Metadata
 

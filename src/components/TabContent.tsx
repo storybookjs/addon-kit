@@ -1,6 +1,6 @@
 import React from "react";
 import { styled } from "@storybook/theming";
-import { Title, Source, Link } from "@storybook/components";
+import { H1, Link, Code } from "@storybook/components";
 
 const TabWrapper = styled.div(({ theme }) => ({
   background: theme.background.content,
@@ -22,7 +22,7 @@ interface TabContentProps {
 export const TabContent: React.FC<TabContentProps> = ({ code }) => (
   <TabWrapper>
     <TabInner>
-      <Title>My Addon</Title>
+      <H1>My Addon</H1>
       <p>
         Your addon can create a custom tab in Storybook. For example, the
         official{" "}
@@ -34,14 +34,14 @@ export const TabContent: React.FC<TabContentProps> = ({ code }) => (
       <p>
         You have full control over what content is being rendered here. You can
         use components from{" "}
-        <Link href="https://github.com/storybookjs/storybook/tree/master/lib/components">
+        <Link href="https://github.com/storybookjs/storybook/tree/next/code/ui/components">
           @storybook/components
         </Link>{" "}
         to match the look and feel of Storybook, for example the{" "}
-        <code>&lt;Source /&gt;</code> component below. Or build a completely
+        <code>&lt;Code /&gt;</code> component below. Or build a completely
         custom UI.
       </p>
-      <Source code={code} language="jsx" format={false} />
+      <Code>{code}</Code>
     </TabInner>
   </TabWrapper>
 );
