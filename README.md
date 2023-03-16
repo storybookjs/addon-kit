@@ -44,21 +44,21 @@ This will convert all code to JS. It is a destructive process, so we recommended
 
 The addon code lives in `src`. It demonstrates all core addon related concepts. The three [UI paradigms](https://storybook.js.org/docs/react/addons/addon-types#ui-based-addons)
 
-- `src/Tool.js`
-- `src/Panel.js`
-- `src/Tab.js`
+- `src/Tool.ts`
+- `src/Panel.ts`
+- `src/Tab.ts`
 
 Which, along with the addon itself, are registered in `src/manager.ts`.
 
 Managing State and interacting with a story:
 
-- `src/withGlobals.js` & `src/Tool.js` demonstrates how to use `useGlobals` to manage global state and modify the contents of a Story.
-- `src/withRoundTrip.js` & `src/Panel.js` demonstrates two-way communication using channels.
-- `src/Tab.js` demonstrates how to use `useParameter` to access the current story's parameters.
+- `src/withGlobals.ts` & `src/Tool.ts` demonstrates how to use `useGlobals` to manage global state and modify the contents of a Story.
+- `src/withRoundTrip.ts` & `src/Panel.ts` demonstrates two-way communication using channels.
+- `src/Tab.ts` demonstrates how to use `useParameter` to access the current story's parameters.
 
 Your addon might use one or more of these patterns. Feel free to delete unused code. Update `src/manager.ts` and `src/preview.ts` accordingly.
 
-Lastly, configure you addon name in `src/constants.js`.
+Lastly, configure you addon name in `src/constants.ts`.
 
 ### Metadata
 
