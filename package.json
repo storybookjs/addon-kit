@@ -13,7 +13,6 @@
   "license": "MIT",
   "exports": {
     ".": {
-      "node": "./dist/index.js",
       "require": "./dist/index.js",
       "import": "./dist/index.mjs",
       "types": "./dist/index.d.ts"
@@ -27,11 +26,6 @@
       "require": "./dist/preview.js",
       "import": "./dist/preview.mjs",
       "types": "./dist/preview.d.ts"
-    },
-    "./register": {
-      "require": "./dist/manager.js",
-      "import": "./dist/manager.mjs",
-      "types": "./dist/manager.d.ts"
     },
     "./package.json": "./package.json"
   },
