@@ -60,6 +60,7 @@
     "@storybook/react-vite": "^7.0.0",
     "@storybook/testing-library": "^0.0.14-next.1",
     "@types/node": "^18.15.0",
+    "@types/react": "^18.0.34",
     "@vitejs/plugin-react": "^3.1.0",
     "auto": "^10.3.0",
     "boxen": "^5.0.1",
