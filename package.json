@@ -13,20 +13,13 @@
   "author": "package-author",
   "exports": {
     ".": {
+      "types": "./dist/index.d.ts",
+      "node": "./dist/index.js",
       "require": "./dist/index.js",
-      "import": "./dist/index.mjs",
-      "types": "./dist/index.d.ts"
+      "import": "./dist/index.mjs"
     },
-    "./manager": {
-      "require": "./dist/manager.js",
-      "import": "./dist/manager.mjs",
-      "types": "./dist/manager.d.ts"
-    },
-    "./preview": {
-      "require": "./dist/preview.js",
-      "import": "./dist/preview.mjs",
-      "types": "./dist/preview.d.ts"
-    },
+    "./manager": "./dist/manager.mjs",
+    "./preview": "./dist/preview.mjs",
     "./package.json": "./package.json"
   },
   "main": "dist/index.js",
@@ -43,7 +36,7 @@
     "clean": "rimraf ./dist",
     "prebuild": "npm run clean",
     "build": "tsup",
-    "build:watch": "npm run build --watch",
+    "build:watch": "npm run build -- --watch",
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "run-p build:watch 'storybook --quiet'",
     "prerelease": "zx scripts/prepublish-checks.mjs",
@@ -91,10 +84,9 @@
     "access": "public"
   },
   "bundler": {
-    "exportEntries": [],
-    "nodeEntries": [],
-    "managerEntries": [],
-    "previewEntries": []
+    "exportEntries": ["src/index.ts"],
+    "managerEntries": ["src/manager.ts"],
+    "previewEntries": ["src/preview.ts"]
   },
   "storybook": {
     "displayName": "Addon Kit",
