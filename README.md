@@ -70,6 +70,30 @@ Your addon might use one or more of these patterns. Feel free to delete unused c
 
 Lastly, configure you addon name in `src/constants.ts`.
 
+### Bundling
+
+Addons have multiple ways of interacting with a Storybook project. It's recommended to understand [the basics](https://storybook.js.org/docs/react/addons/introduction) before diving in.
+
+- Manager entries are used to inject UI or behavior to the Storybook manager UI
+- Preview entries are used to inject UI or behavior into the preview iframe where stories are rendered
+- Presets are used to alter the configuration of a Storybook similar to how [users can configure their `main.ts` configurations](https://storybook.js.org/docs/react/api/main-config).
+
+Each of these places are different environments where different features and modules are available, therefore it's also recommended to separate and build your modules into the same categories. Addon-kit comes preconfigured with [a bundling configuration](./tsup.config.ts) that supports this separation and you're free to modify and extend it to suit your needs.
+
+You define which modules match which environments in the [`package.json#bundler`](./package.json) property:
+
+- `exportEntries` is a list of module entries that your users can import from manually anywhere they need to. Eg. you could have decorators that users need to import to their `preview.ts` file, or utility functions that can be used in their `main.ts` files.
+- `managerEntries` is a list of module entries meant only for the manager UI. These modules will only be bundled to ESM and won't include types, since they are mostly loaded by Storybook directly anyway.
+- `managerEntries` is a list of module entries meant only for the preview UI. These modules will only be bundled to ESM and won't include types, since they are mostly loaded by Storybook directly anyway.
+
+#### Globalized packages
+
+Storybook makes a pre-defined set of packages available in the manager UI and in the preview UI. In the final bundle of your addon these packages should not be included, but rather imported directly, which allows Storybook to replace those imports with the actual packages when Storybook is being built.
+
+The list of packages is different between the manager and the preview, which is why there's a slight difference between `managerEntries` and `previewEntries`. Most notably `react` and `react-dom` comes prebundled in the manager, but not in the preview. This means that your manager entries are free to use React to build UI _without_ bundling it in or having a direct reference to it, which is why it's safe to have them as a `devDependency` even though you are using it. _Having React as a peer dependency will unnecessarily require your users to install React._
+
+An exception to the rule above is if you're using React to inject UI into the _preview_, which doesn't come prebundled with React. In those cases you need to move `react` and `react-dom` to a peer dependency. We generally advice against this pattern since this will mean your addon can only be used in React-based Storybooks.
+
 ### Metadata
 
 Storybook addons are listed in the [catalog](https://storybook.js.org/addons) and distributed via npm. The catalog is populated by querying npm's registry for Storybook-specific metadata in `package.json`. This project has been configured with sample data. Learn more about available options in the [Addon metadata docs](https://storybook.js.org/docs/react/addons/addon-catalog#addon-metadata).
