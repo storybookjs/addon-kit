@@ -47,14 +47,14 @@ type BundlerConfig = {
 };
 
 export default defineConfig(async (options) => {
-  const pkgJsonContent = await readFile(join(__dirname, "package.json"));
+  const packageJson = await readFile('./package.json', 'utf8').then(JSON.parse) as BundlerConfig;
   const {
     bundler: {
       exportEntries = [],
       managerEntries = [],
       previewEntries = [],
     } = {},
-  } = JSON.parse(pkgJsonContent.toString()) as BundlerConfig;
+  } = packageJson;
 
   const commonConfig: Options = {
     splitting: false,
