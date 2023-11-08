@@ -1,38 +1,7 @@
 import { defineConfig, type Options } from "tsup";
 import { readFile } from "fs/promises";
-import { join } from "path";
-
-// temporarily hardocded until https://github.com/storybookjs/storybook/pull/24676 is released so we can import the lists instead
-const globalManagerPackages = [
-  'react',
-  'react-dom',
-  '@storybook/components',
-  '@storybook/channels',
-  '@storybook/core-events',
-  '@storybook/router',
-  '@storybook/theming',
-  '@storybook/api',
-  '@storybook/manager-api',
-  '@storybook/addons',
-  '@storybook/client-logger',
-  '@storybook/types',
-]
-
-const globalPreviewPackages = [
-  '@storybook/addons',
-  '@storybook/global',
-  '@storybook/channel-postmessage', 
-  '@storybook/channel-websocket', 
-  '@storybook/channels',
-  '@storybook/client-api',
-  '@storybook/client-logger',
-  '@storybook/core-client',
-  '@storybook/core-events',
-  '@storybook/preview-web',
-  '@storybook/preview-api',
-  '@storybook/store',
-  '@storybook/types',
-];
+import { globalPackages as globalManagerPackages } from "@storybook/manager/globals";
+import { globalPackages as globalPreviewPackages } from "@storybook/preview/globals";
 
 const BROWSER_TARGET: Options['target'] = ["chrome100", "safari15", "firefox91"];
 const NODE_TARGET: Options['target'] = ["node16"];
