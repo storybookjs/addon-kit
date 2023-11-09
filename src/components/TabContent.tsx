@@ -24,12 +24,7 @@ export const TabContent: React.FC<TabContentProps> = ({ code }) => (
     <TabInner>
       <H1>My Addon</H1>
       <p>
-        Your addon can create a custom tab in Storybook. For example, the
-        official{" "}
-        <Link href="https://storybook.js.org/docs/react/writing-docs/introduction">
-          @storybook/addon-docs
-        </Link>{" "}
-        uses this pattern.
+        Your addon can create a custom tab in Storybook.
       </p>
       <p>
         You have full control over what content is being rendered here. You can
