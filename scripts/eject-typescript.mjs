@@ -11,7 +11,7 @@ console.log(chalk.green`
 🔃 Installing dependencies...
 
 `);
-await $`yarn add -D @babel/cli @babel/preset-typescript --ignore-scripts`;
+await $`npm install --save-dev @babel/cli @babel/preset-typescript --ignore-scripts`;
 
 // Convert TS code to JS
 await $`babel --no-babelrc --presets @babel/preset-typescript ./srcTS -d ./src --extensions \".js,.jsx,.ts,.tsx\" --ignore "./srcTS/typings.d.ts"`;
@@ -44,7 +44,7 @@ console.log(chalk.green`
 🧹 Clean up...
 
 `);
-await $`yarn remove @babel/cli @babel/preset-typescript --ignore-scripts`;
+await $`npm uninstall @babel/cli @babel/preset-typescript --ignore-scripts`;
 
 console.log(
   chalk.green.bold`

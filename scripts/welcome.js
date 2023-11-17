@@ -120,7 +120,7 @@ const main = async () => {
   if (!authorName || !packageName) {
     console.log(
       `\nProcess canceled by the user. Feel free to run ${bold(
-        "yarn postinstall"
+        "npm run postinstall"
       )} to execute the installation steps again!`
     );
     process.exit(0);
@@ -166,7 +166,7 @@ const main = async () => {
 
   console.log(
     dedent`\n
-      🚀 All done! Run \`yarn start\` to get started.
+      🚀 All done! Run \`npm run start\` to get started.
 
       Thanks for using this template, ${authorName.split(" ")[0]}! ❤️
 
