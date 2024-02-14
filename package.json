@@ -9,22 +9,22 @@
     "type": "git",
     "url": "https://github.com/storybookjs/storybook-addon-kit"
   },
+  "type": "module",
   "license": "MIT",
   "author": "package-author",
   "exports": {
     ".": {
       "types": "./dist/index.d.ts",
-      "node": "./dist/index.js",
-      "require": "./dist/index.js",
-      "import": "./dist/index.mjs"
+      "require": "./dist/index.cjs",
+      "import": "./dist/index.js"
     },
-    "./manager": "./dist/manager.mjs",
-    "./preview": "./dist/preview.mjs",
+    "./preview": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/preview.js"
+    },
+    "./manager": "./dist/manager.js",
     "./package.json": "./package.json"
   },
-  "main": "dist/index.js",
-  "module": "dist/index.mjs",
-  "types": "dist/index.d.ts",
   "files": [
     "dist/**/*",
     "README.md",
@@ -84,9 +84,15 @@
     "access": "public"
   },
   "bundler": {
-    "exportEntries": ["src/index.ts"],
-    "managerEntries": ["src/manager.ts"],
-    "previewEntries": ["src/preview.ts"]
+    "exportEntries": [
+      "src/index.ts"
+    ],
+    "managerEntries": [
+      "src/manager.ts"
+    ],
+    "previewEntries": [
+      "src/preview.ts"
+    ]
   },
   "storybook": {
     "displayName": "Addon Kit",

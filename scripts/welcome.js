@@ -1,10 +1,14 @@
 /* eslint-disable eslint-comments/disable-enable-pair */
 /* eslint-disable no-console */
-const prompts = require("prompts");
-const dedent = require("ts-dedent").default;
-const path = require("path");
-const fs = require("fs");
-const { execSync } = require("child_process");
+import prompts from 'prompts';
+import { dedent } from 'ts-dedent';
+import { dirname, resolve } from 'path';
+import { readFileSync, writeFileSync } from 'fs';
+import { execSync } from 'child_process';
+import { fileURLToPath } from 'url';
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = dirname(__filename);
 
 // CLI questions
 const questions = [
@@ -128,10 +132,10 @@ const main = async () => {
 
   const authorField = authorName + (authorEmail ? ` <${authorEmail}>` : "");
 
-  const packageJson = path.resolve(__dirname, `../package.json`);
+  const packageJson = resolve(__dirname, `../package.json`);
 
   console.log(`\n👷 Updating package.json...`);
-  let packageJsonContents = fs.readFileSync(packageJson, "utf-8");
+  let packageJsonContents = readFileSync(packageJson, "utf-8");
 
   packageJsonContents = packageJsonContents
     .replace(REPLACE_TEMPLATES.packageName, packageName)
@@ -143,11 +147,11 @@ const main = async () => {
     .replace(REPLACE_TEMPLATES.supportedFrameworks, supportedFrameworks)
     .replace(/\s*"postinstall".*node.*scripts\/welcome.js.*",/, '');
 
-  fs.writeFileSync(packageJson, packageJsonContents);
+  writeFileSync(packageJson, packageJsonContents);
 
   console.log("📝 Updating the README...");
-  const readme = path.resolve(__dirname, `../README.md`);
-  let readmeContents = fs.readFileSync(readme, "utf-8");
+  const readme = resolve(__dirname, `../README.md`);
+  let readmeContents = readFileSync(readme, "utf-8");
 
   const regex = /<\!-- README START -->([\s\S]*)<\!-- README END -->/g;
 
@@ -159,7 +163,7 @@ const main = async () => {
     `
   );
 
-  fs.writeFileSync(readme, readmeContents);
+  writeFileSync(readme, readmeContents);
 
   console.log(`📦 Creating a commit...`);
   execSync('git add . && git commit -m "project setup" --no-verify');
