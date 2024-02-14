@@ -5,7 +5,7 @@ import { globalPackages as globalPreviewPackages } from "@storybook/preview/glob
 
 // The current browsers supported by Storybook v7
 const BROWSER_TARGET: Options['target'] = ["chrome100", "safari15", "firefox91"];
-const NODE_TARGET: Options['target'] = ["node16"];
+const NODE_TARGET: Options['target'] = ["node18"];
 
 type BundlerConfig = {
   bundler?: {
