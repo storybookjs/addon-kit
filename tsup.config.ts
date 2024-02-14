@@ -24,6 +24,7 @@ export default defineConfig(async (options) => {
   //     "exportEntries": ["./src/index.ts"],
   //     "managerEntries": ["./src/manager.ts"],
   //     "previewEntries": ["./src/preview.ts"]
+  //     "nodeEntries": ["./src/preset.ts"]
   //   }
   // }
   const packageJson = await readFile('./package.json', 'utf8').then(JSON.parse) as BundlerConfig;
@@ -32,6 +33,7 @@ export default defineConfig(async (options) => {
       exportEntries = [],
       managerEntries = [],
       previewEntries = [],
+      nodeEntries = [],
     } = {},
   } = packageJson;
 
@@ -55,7 +57,7 @@ export default defineConfig(async (options) => {
       dts: {
         resolve: true,
       },
-      format: ["esm", 'cjs'],
+      format: ["esm", "cjs"],
       target: [...BROWSER_TARGET, ...NODE_TARGET],
       platform: "neutral",
       external: [...globalManagerPackages, ...globalPreviewPackages],
@@ -78,15 +80,31 @@ export default defineConfig(async (options) => {
 
   // preview entries are entries meant to be loaded into the preview iframe
   // they'll have preview-specific packages externalized and they won't be usable in node
-  // they won't have types generated for them as they're usually loaded automatically by Storybook
+  // they'll have types generated for them so they can be imported when setting up Portable Stories
   if (previewEntries.length) {
     configs.push({
       ...commonConfig,
       entry: previewEntries,
+      dts: {
+        resolve: true,
+      },
       format: ["esm"],
       target: BROWSER_TARGET,
       platform: "browser",
       external: globalPreviewPackages,
+    });
+  }
+
+  // node entries are entries meant to be used in node-only
+  // this is useful for presets, which are loaded by Storybook when setting up configurations
+  // they won't have types generated for them as they're usually loaded automatically by Storybook
+  if (nodeEntries.length) {
+    configs.push({
+      ...commonConfig,
+      entry: nodeEntries,
+      format: ["cjs"],
+      target: NODE_TARGET,
+      platform: "node",
     });
   }
 
