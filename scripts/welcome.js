@@ -3,7 +3,7 @@
 import prompts from 'prompts';
 import { dedent } from 'ts-dedent';
 import { dirname, resolve } from 'path';
-import { readFileSync, writeFileSync } from 'fs';
+import { readFile, writeFile } from 'fs/promises';
 import { execSync } from 'child_process';
 import { fileURLToPath } from 'url';
 
@@ -135,7 +135,7 @@ const main = async () => {
   const packageJson = resolve(__dirname, `../package.json`);
 
   console.log(`\n👷 Updating package.json...`);
-  let packageJsonContents = readFileSync(packageJson, "utf-8");
+  let packageJsonContents = await readFile(packageJson, "utf-8");
 
   packageJsonContents = packageJsonContents
     .replace(REPLACE_TEMPLATES.packageName, packageName)
@@ -147,11 +147,11 @@ const main = async () => {
     .replace(REPLACE_TEMPLATES.supportedFrameworks, supportedFrameworks)
     .replace(/\s*"postinstall".*node.*scripts\/welcome.js.*",/, '');
 
-  writeFileSync(packageJson, packageJsonContents);
+  await writeFile(packageJson, packageJsonContents);
 
   console.log("📝 Updating the README...");
   const readme = resolve(__dirname, `../README.md`);
-  let readmeContents = readFileSync(readme, "utf-8");
+  let readmeContents = await readFile(readme, "utf-8");
 
   const regex = /<\!-- README START -->([\s\S]*)<\!-- README END -->/g;
 
@@ -163,7 +163,7 @@ const main = async () => {
     `
   );
 
-  writeFileSync(readme, readmeContents);
+  await writeFile(readme, readmeContents);
 
   console.log(`📦 Creating a commit...`);
   execSync('git add . && git commit -m "project setup" --no-verify');
