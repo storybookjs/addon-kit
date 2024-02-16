@@ -72,7 +72,7 @@ peerDependencies.forEach((dependency) => {
           ${chalk.red(dedent`You have a peer dependency on ${chalk.bold(dependency)} which is most likely unnecessary
           as that is provided by Storybook directly.
           Check the "bundling" section in README.md for more information.
-          If you are absolutely sure you are doing it correct, you should remove this check from scripts/prepublish-checks.mjs.`)}
+          If you are absolutely sure you are doing it correct, you should remove this check from scripts/prepublish-checks.js.`)}
         `,
         { padding: 1, borderColor: "red" }
       )
