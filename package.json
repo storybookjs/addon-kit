@@ -20,8 +20,10 @@
     },
     "./preview": {
       "types": "./dist/index.d.ts",
-      "import": "./dist/preview.js"
+      "import": "./dist/preview.js",
+      "require": "./dist/preview.js"
     },
+    "./preset": "./dist/preset.cjs",
     "./manager": "./dist/manager.js",
     "./package.json": "./package.json"
   },
@@ -92,6 +94,9 @@
     ],
     "previewEntries": [
       "src/preview.ts"
+    ],
+    "nodeEntries": [
+      "src/preset.ts"
     ]
   },
   "storybook": {
