@@ -15,13 +15,13 @@
   "exports": {
     ".": {
       "types": "./dist/index.d.ts",
-      "require": "./dist/index.cjs",
-      "import": "./dist/index.js"
+      "import": "./dist/index.js",
+      "require": "./dist/index.cjs"
     },
     "./preview": {
       "types": "./dist/index.d.ts",
       "import": "./dist/preview.js",
-      "require": "./dist/preview.js"
+      "require": "./dist/preview.cjs"
     },
     "./preset": "./dist/preset.cjs",
     "./manager": "./dist/manager.js",

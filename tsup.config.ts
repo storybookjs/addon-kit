@@ -88,7 +88,7 @@ export default defineConfig(async (options) => {
       dts: {
         resolve: true,
       },
-      format: ["esm"],
+      format: ["esm", "cjs"],
       target: BROWSER_TARGET,
       platform: "browser",
       external: globalPreviewPackages,
