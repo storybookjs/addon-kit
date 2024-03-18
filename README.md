@@ -13,15 +13,9 @@ Simplify the creation of Storybook addons
 - 🛄 ESM support
 - 🛂 TypeScript by default with option to eject to JS
 
-### Migrating from Storybook 6.x to 7
+### Migrating to a later Storybook version
 
-Note, if you're looking to upgrade your addon from Storybook 6.x to 7, please refer to the [migration guide](https://github.com/storybookjs/storybook/blob/next/MIGRATION.md#70-addon-authors-changes). The major changes are:
-
-- `register.js` was removed
-- No more default export from `@storybook/addons`
-- `@storybook/api` has been split into `@storybook/preview-api` and `@storybook/manager-api`
-
-Skip this section if you're bootstrapping a new addon.
+If you have an existing addon that you want to migrate to support the latest version of Storyboook, you can check out the [addon migration guide](https://storybook.js.org/docs/addons/addon-migration-guide).
 
 ## Getting Started
 
