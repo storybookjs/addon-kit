@@ -1,50 +1,39 @@
-import { useChannel } from "@storybook/preview-api";
-import type {
-  Renderer,
-  PartialStoryFn as StoryFunction,
-} from "@storybook/types";
-import { STORY_CHANGED } from "@storybook/core-events";
+import { Result } from "src/types";
+import { useEffect } from "storybook/internal/preview-api";
+import { useChannel } from "storybook/internal/preview-api";
+import type { DecoratorFunction } from "storybook/internal/types";
+
 import { EVENTS } from "./constants";
 
-export const withRoundTrip = (storyFn: StoryFunction<Renderer>) => {
+/**
+ * This is an example of a function that performs some sort of analysis on the
+ * canvas. In this example, it returns the bounding rectangles for elements that
+ * - have a style attribute
+ * - are divs with fewer than 2 childNodes
+ */
+const check = (canvas: ParentNode = globalThis.document): Result => {
+  const divs = canvas.querySelectorAll("div");
+  const all = canvas.querySelectorAll("*");
+
+  return {
+    divs: Array.from(divs)
+      .filter((element) => element.childNodes.length < 2)
+      .map((div) => div.getBoundingClientRect()),
+    styled: Array.from(all)
+      .filter((element) => element.hasAttribute("style"))
+      .map((element) => element.getBoundingClientRect()),
+  };
+};
+
+export const withRoundTrip: DecoratorFunction = (storyFn, context) => {
+  const canvasElement = context.canvasElement as ParentNode;
   const emit = useChannel({
     [EVENTS.REQUEST]: () => {
-      emit(EVENTS.RESULT, {
-        danger: [
-          {
-            title: "Panels are the most common type of addon in the ecosystem",
-            description:
-              "For example the official @storybook/actions and @storybook/a11y use this pattern",
-          },
-          {
-            title:
-              "You can specify a custom title for your addon panel and have full control over what content it renders",
-            description:
-              "@storybook/components offers components to help you addons with the look and feel of Storybook itself",
-          },
-        ],
-        warning: [
-          {
-            title:
-              'This tabbed UI pattern is a popular option to display "test" reports.',
-            description:
-              "It's used by @storybook/addon-jest and @storybook/addon-a11y. @storybook/components offers this and other components to help you quickly build an addon",
-          },
-        ],
-      });
+      emit(EVENTS.RESULT, check(canvasElement));
     },
-    [STORY_CHANGED]: () => {
-      emit(EVENTS.RESULT, {
-        danger: [],
-        warning: [],
-      });
-    },
-    [EVENTS.CLEAR]: () => {
-      emit(EVENTS.RESULT, {
-        danger: [],
-        warning: [],
-      });
-    },
+  });
+  useEffect(() => {
+    emit(EVENTS.RESULT, check(canvasElement));
   });
 
   return storyFn();

@@ -8,8 +8,9 @@
  *
  * https://storybook.js.org/docs/react/writing-stories/decorators
  */
-import type { Renderer, ProjectAnnotations } from "@storybook/types";
-import { PARAM_KEY } from "./constants";
+import type { ProjectAnnotations, Renderer } from "storybook/internal/types";
+
+import { KEY } from "./constants";
 import { withGlobals } from "./withGlobals";
 import { withRoundTrip } from "./withRoundTrip";
 
@@ -20,8 +21,8 @@ import { withRoundTrip } from "./withRoundTrip";
 
 const preview: ProjectAnnotations<Renderer> = {
   decorators: [withGlobals, withRoundTrip],
-  globals: {
-    [PARAM_KEY]: false,
+  initialGlobals: {
+    [KEY]: false,
   },
 };
 
