@@ -7,5 +7,4 @@ export const KEY = `my-addon`;
 export const EVENTS = {
   RESULT: `${ADDON_ID}/result`,
   REQUEST: `${ADDON_ID}/request`,
-  // CLEAR: `${ADDON_ID}/clear`,
 };
