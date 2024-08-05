@@ -1,6 +1,6 @@
 import React, { Fragment, memo, useCallback, useState } from "react";
 import { Result } from "src/types";
-import { AddonPanel, P } from "storybook/internal/components";
+import { AddonPanel } from "storybook/internal/components";
 import { Button, Placeholder, TabsState } from "storybook/internal/components";
 import { useChannel } from "storybook/internal/manager-api";
 import { styled, useTheme } from "storybook/internal/theming";
