@@ -45,6 +45,9 @@
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build"
   },
+  "dependencies": {
+    "@storybook/icons": "^1.2.10"
+  },
   "devDependencies": {
     "@storybook/addon-essentials": "0.0.0-pr-26654-sha-49d01553",
     "@storybook/addon-interactions": "0.0.0-pr-26654-sha-49d01553",
