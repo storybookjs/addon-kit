@@ -1,5 +1,4 @@
 import type { Preview } from "@storybook/react";
-import { background } from "storybook/internal/theming";
 
 const preview: Preview = {
   parameters: {
