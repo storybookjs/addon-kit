@@ -1,8 +1,8 @@
 import { LightningIcon } from "@storybook/icons";
 import React, { useCallback } from "react";
 import { Code, H1, IconButton, Link } from "storybook/internal/components";
-import { useGlobals, useParameter } from "storybook/internal/manager-api";
-import { styled } from "storybook/internal/theming";
+import { useGlobals, useParameter } from "storybook/manager-api";
+import { styled } from "storybook/theming";
 
 import { KEY } from "../constants";
 
