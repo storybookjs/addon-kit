@@ -115,7 +115,7 @@ npm install --save-dev my-addon
 
 Then, register it as an addon in `.storybook/main.js`.
 
-```js
+```ts
 // .storybook/main.ts
 
 // Replace your-framework with the framework you are using (e.g., react-webpack5, vue3-vite)
@@ -137,7 +137,7 @@ export default config;
 The primary way to use this addon is to define the `exampleParameter` parameter. You can do this the
 component level, as below, to affect all stories in the file, or you can do it for a single story.
 
-```js
+```ts
 // Button.stories.ts
 
 // Replace your-framework with the name of your framework
