@@ -4,9 +4,8 @@ const config: StorybookConfig = {
   addons: [
     "@storybook/addon-links",
     "@storybook/addon-docs",
-    "./local-preset.js",
+    "./local-preset.cjs",
   ],
-  framework: { name: "@storybook/react-vite", options: {} },
-  docs: { autodocs: "tag" },
+  framework: "@storybook/react-vite",
 };
 export default config;
