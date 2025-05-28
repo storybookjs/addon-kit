@@ -1,19 +1,23 @@
 {
   "compilerOptions": {
-    "allowSyntheticDefaultImports": true,
-    "baseUrl": ".",
     "esModuleInterop": true,
-    "experimentalDecorators": true,
-    "incremental": false,
-    "isolatedModules": true,
-    "jsx": "react",
-    "moduleResolution": "bundler",
-    "lib": ["es2020", "dom"],
-    "module": "Preserve",
-    "noImplicitAny": true,
-    "rootDir": "./src",
     "skipLibCheck": true,
-    "target": "ES2022"
+    "target": "es2023", // Node 20 according to https://github.com/microsoft/TypeScript/wiki/Node-Target-Mapping#node-20
+    "allowJs": true,
+    "resolveJsonModule": true,
+    "moduleDetection": "force",
+    "moduleResolution": "bundler",
+    "module": "preserve",
+    "jsx": "react",
+    "isolatedModules": true,
+    "verbatimModuleSyntax": true,
+    "strict": true,
+    "noUncheckedIndexedAccess": true,
+    "noImplicitOverride": true,
+    "noImplicitAny": true,
+    "lib": ["es2023", "dom", "dom.iterable"],
+    "baseUrl": ".",
+    "rootDir": "./src"
   },
   "include": ["src/**/*"]
 }
