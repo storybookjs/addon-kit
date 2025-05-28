@@ -1,4 +1,4 @@
-name: Release
+name: Build
 
 on: [push]
 
@@ -20,9 +20,10 @@ jobs:
       - name: Install dependencies
         run: npm install --ignore-scripts
 
-      - name: Create Release
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+      - name: Build
         run: |
-          npm run release
+          npm run build
+
+      - name: Build Storybook
+        run: |
+          npm run build-storybook

@@ -98,7 +98,7 @@ Storybook addons are listed in the [catalog](https://storybook.js.org/addons) an
 
 To help the community use your addon and understand its capabilities, please document it thoroughly.
 
-To get started, replace this README with the content in this sample template, modeled after how essential addons (like [Actions](https://storybook.js.org/docs/essentials/actions)) are documented. Then update the content to describe your addon.
+To get started, replace this README with the content in this sample template.
 
 ### Sample documentation template
 
@@ -124,7 +124,7 @@ import type { StorybookConfig } from '@storybook/your-framework';
 const config: StorybookConfig = {
   // ...rest of config
   addons: [
-    '@storybook/addon-essentials'
+    '@storybook/addon-docs'
     'my-addon', // 👈 register the addon here
   ],
 };
@@ -183,14 +183,14 @@ registering the addon, like so:
 // .storybook/main.ts
 
 // Replace your-framework with the framework you are using (e.g., react-webpack5, vue3-vite)
-import type { StorybookConfig } from '@storybook/your-framework';
+import type { StorybookConfig } from "@storybook/your-framework";
 
 const config: StorybookConfig = {
   // ...rest of config
   addons: [
-    '@storybook/essentials',
+    "@storybook/addon-docs",
     {
-      name: 'my-addon',
+      name: "my-addon",
       options: {
         // 👈 options for my-addon go here
       },
@@ -206,7 +206,6 @@ export default config;
 Type: `boolean`
 
 Enable experimental behavior to...
-
 ````
 
 ## Release Management

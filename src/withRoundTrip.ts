@@ -1,6 +1,5 @@
 import { Result } from "src/types";
-import { useEffect } from "storybook/internal/preview-api";
-import { useChannel } from "storybook/internal/preview-api";
+import { useEffect, useChannel } from "storybook/preview-api";
 import type { DecoratorFunction } from "storybook/internal/types";
 
 import { EVENTS } from "./constants";

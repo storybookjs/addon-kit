@@ -1,5 +1,5 @@
 import React, { memo, useCallback, useEffect } from "react";
-import { useGlobals, type API } from "storybook/internal/manager-api";
+import { useGlobals, type API } from "storybook/manager-api";
 import { IconButton } from "storybook/internal/components";
 import { ADDON_ID, KEY, TOOL_ID } from "../constants";
 import { LightningIcon } from "@storybook/icons";
