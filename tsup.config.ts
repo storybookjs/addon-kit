@@ -44,7 +44,9 @@ export default defineConfig(async (options) => {
     minify: !options.watch,
     treeshake: true,
     sourcemap: true,
-    clean: options.watch ? false : true,
+    // keep this line commented until https://github.com/egoist/tsup/issues/1270 is resolved
+    // clean: options.watch ? false : true,
+    clean: false,
   };
 
   const configs: Options[] = [];
