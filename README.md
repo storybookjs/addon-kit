@@ -98,7 +98,7 @@ Storybook addons are listed in the [catalog](https://storybook.js.org/addons) an
 
 To help the community use your addon and understand its capabilities, please document it thoroughly.
 
-To get started, replace this README with the content in this sample template, modeled after how essential addons (like [Actions](https://storybook.js.org/docs/essentials/actions)) are documented. Then update the content to describe your addon.
+To get started, replace this README with the content in this sample template.
 
 ### Sample documentation template
 
@@ -115,7 +115,7 @@ npm install --save-dev my-addon
 
 Then, register it as an addon in `.storybook/main.js`.
 
-```js
+```ts
 // .storybook/main.ts
 
 // Replace your-framework with the framework you are using (e.g., react-webpack5, vue3-vite)
@@ -124,7 +124,7 @@ import type { StorybookConfig } from '@storybook/your-framework';
 const config: StorybookConfig = {
   // ...rest of config
   addons: [
-    '@storybook/addon-essentials'
+    '@storybook/addon-docs'
     'my-addon', // 👈 register the addon here
   ],
 };
@@ -137,7 +137,7 @@ export default config;
 The primary way to use this addon is to define the `exampleParameter` parameter. You can do this the
 component level, as below, to affect all stories in the file, or you can do it for a single story.
 
-```js
+```ts
 // Button.stories.ts
 
 // Replace your-framework with the name of your framework
@@ -183,14 +183,14 @@ registering the addon, like so:
 // .storybook/main.ts
 
 // Replace your-framework with the framework you are using (e.g., react-webpack5, vue3-vite)
-import type { StorybookConfig } from '@storybook/your-framework';
+import type { StorybookConfig } from "@storybook/your-framework";
 
 const config: StorybookConfig = {
   // ...rest of config
   addons: [
-    '@storybook/essentials',
+    "@storybook/addon-docs",
     {
-      name: 'my-addon',
+      name: "my-addon",
       options: {
         // 👈 options for my-addon go here
       },
@@ -206,7 +206,6 @@ export default config;
 Type: `boolean`
 
 Enable experimental behavior to...
-
 ````
 
 ## Release Management

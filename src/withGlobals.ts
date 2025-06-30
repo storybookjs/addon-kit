@@ -1,4 +1,4 @@
-import { useEffect, useGlobals } from "storybook/internal/preview-api";
+import { useEffect, useGlobals } from "storybook/preview-api";
 import type {
   Renderer,
   StoryContext,
