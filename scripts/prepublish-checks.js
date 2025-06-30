@@ -1,7 +1,7 @@
 #!/usr/bin/env zx
 
 import boxen from "boxen";
-import dedent from "dedent";
+import { dedent } from "ts-dedent";
 import { readFile } from "node:fs/promises";
 import { globalPackages as globalManagerPackages } from "storybook/internal/manager/globals";
 import { globalPackages as globalPreviewPackages } from "storybook/internal/preview/globals";
@@ -68,7 +68,7 @@ peerDependencies.forEach((dependency) => {
       boxen(
         dedent`
           ${chalk.red.bold("Unnecessary peer dependency")}
-  
+
           ${chalk.red(dedent`You have a peer dependency on ${chalk.bold(dependency)} which is most likely unnecessary
           as that is provided by Storybook directly.
           Check the "bundling" section in README.md for more information.
