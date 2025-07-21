@@ -1,72 +1,36 @@
-import { readFile } from "node:fs/promises";
-
 import { defineConfig, type Options } from "tsup";
 
-import { globalPackages as globalManagerPackages } from "storybook/internal/manager/globals";
-import { globalPackages as globalPreviewPackages } from "storybook/internal/preview/globals";
-
 const NODE_TARGET: Options["target"] = "node20";
-
-type BundlerConfig = {
-  bundler?: {
-    exportEntries?: string[];
-    nodeEntries?: string[];
-    managerEntries?: string[];
-    previewEntries?: string[];
-  };
-};
 
 export default defineConfig(async (options) => {
   // reading the three types of entries from package.json, which has the following structure:
   // {
   //  ...
   //   "bundler": {
-  //     "exportEntries": ["./src/index.ts"],
   //     "managerEntries": ["./src/manager.ts"],
   //     "previewEntries": ["./src/preview.ts"]
   //     "nodeEntries": ["./src/preset.ts"]
   //   }
   // }
-  const packageJson = (await readFile("./package.json", "utf8").then(
-    JSON.parse,
-  )) as BundlerConfig;
+  const packageJson = (
+    await import("./package.json", { with: { type: "json" } })
+  ).default;
+
   const {
-    bundler: {
-      exportEntries = [],
-      managerEntries = [],
-      previewEntries = [],
-      nodeEntries = [],
-    } = {},
+    bundler: { managerEntries = [], previewEntries = [], nodeEntries = [] },
   } = packageJson;
 
   const commonConfig: Options = {
-    splitting: false,
-    minify: !options.watch,
-    treeshake: true,
-    sourcemap: true,
     // keep this line commented until https://github.com/egoist/tsup/issues/1270 is resolved
     // clean: options.watch ? false : true,
     clean: false,
+    format: ["esm"],
+    treeshake: true,
+    splitting: true,
+    external: ["react", "react-dom", "@storybook/icons"],
   };
 
   const configs: Options[] = [];
-
-  // export entries are entries meant to be manually imported by the user
-  // they are not meant to be loaded by the manager or preview
-  // they'll be usable in both node and browser environments, depending on which features and modules they depend on
-  if (exportEntries.length) {
-    configs.push({
-      ...commonConfig,
-      entry: exportEntries,
-      dts: {
-        resolve: true,
-      },
-      format: ["esm", "cjs"],
-      platform: "neutral",
-      target: NODE_TARGET,
-      external: [...globalManagerPackages, ...globalPreviewPackages],
-    });
-  }
 
   // manager entries are entries meant to be loaded into the manager UI
   // they'll have manager-specific packages externalized and they won't be usable in node
@@ -75,9 +39,8 @@ export default defineConfig(async (options) => {
     configs.push({
       ...commonConfig,
       entry: managerEntries,
-      format: ["esm"],
       platform: "browser",
-      external: globalManagerPackages,
+      target: "esnext",
     });
   }
 
@@ -88,12 +51,9 @@ export default defineConfig(async (options) => {
     configs.push({
       ...commonConfig,
       entry: previewEntries,
-      dts: {
-        resolve: true,
-      },
-      format: ["esm", "cjs"],
       platform: "browser",
-      external: globalPreviewPackages,
+      target: "esnext",
+      dts: true,
     });
   }
 
@@ -104,8 +64,8 @@ export default defineConfig(async (options) => {
     configs.push({
       ...commonConfig,
       entry: nodeEntries,
-      format: ["cjs"],
       platform: "node",
+      target: NODE_TARGET,
     });
   }
 
