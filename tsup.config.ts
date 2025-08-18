@@ -2,10 +2,12 @@ import { readFile } from "node:fs/promises";
 
 import { defineConfig, type Options } from "tsup";
 
+import {
+  BROWSER_TARGETS,
+  NODE_TARGET,
+} from "storybook/internal/builder-manager";
 import { globalPackages as globalManagerPackages } from "storybook/internal/manager/globals";
 import { globalPackages as globalPreviewPackages } from "storybook/internal/preview/globals";
-
-const NODE_TARGET: Options["target"] = "node20";
 
 type BundlerConfig = {
   bundler?: {
@@ -77,6 +79,7 @@ export default defineConfig(async (options) => {
       entry: managerEntries,
       format: ["esm"],
       platform: "browser",
+      target: BROWSER_TARGETS,
       external: globalManagerPackages,
     });
   }
@@ -93,6 +96,7 @@ export default defineConfig(async (options) => {
       },
       format: ["esm", "cjs"],
       platform: "browser",
+      target: BROWSER_TARGETS,
       external: globalPreviewPackages,
     });
   }
@@ -106,6 +110,7 @@ export default defineConfig(async (options) => {
       entry: nodeEntries,
       format: ["cjs"],
       platform: "node",
+      target: NODE_TARGET,
     });
   }
 
