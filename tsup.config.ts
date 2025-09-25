@@ -1,6 +1,8 @@
 import { defineConfig, type Options } from "tsup";
-
-const NODE_TARGET: Options["target"] = "node20";
+import {
+  BROWSER_TARGETS,
+  NODE_TARGET,
+} from "storybook/internal/builder-manager";
 
 export default defineConfig(async (options) => {
   // reading the three types of entries from package.json, which has the following structure:
@@ -48,7 +50,7 @@ export default defineConfig(async (options) => {
       ...commonConfig,
       entry: managerEntries,
       platform: "browser",
-      target: "esnext",
+      target: BROWSER_TARGETS,
     });
   }
 
@@ -62,7 +64,7 @@ export default defineConfig(async (options) => {
       ...commonConfig,
       entry: previewEntries,
       platform: "browser",
-      target: "esnext",
+      target: BROWSER_TARGETS,
       dts: true,
     });
   }
