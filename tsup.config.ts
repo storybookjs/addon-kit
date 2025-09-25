@@ -1,8 +1,6 @@
 import { defineConfig, type Options } from "tsup";
-import {
-  BROWSER_TARGETS,
-  NODE_TARGET,
-} from "storybook/internal/builder-manager";
+
+const NODE_TARGET = "node20.19"; // Minimum Node version supported by Storybook 10
 
 export default defineConfig(async (options) => {
   // reading the three types of entries from package.json, which has the following structure:
@@ -50,7 +48,7 @@ export default defineConfig(async (options) => {
       ...commonConfig,
       entry: managerEntries,
       platform: "browser",
-      target: BROWSER_TARGETS,
+      target: "esnext", // we can use esnext for manager entries since Storybook will bundle the addon's manager entries again anyway
     });
   }
 
@@ -64,7 +62,7 @@ export default defineConfig(async (options) => {
       ...commonConfig,
       entry: previewEntries,
       platform: "browser",
-      target: BROWSER_TARGETS,
+      target: "esnext", // we can use esnext for preview entries since the builders will bundle the addon's preview entries again anyway
       dts: true,
     });
   }
