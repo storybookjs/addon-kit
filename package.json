@@ -13,8 +13,12 @@
   "author": "package-author",
   "type": "module",
   "exports": {
-    "./preview": {
+    ".": {
       "types": "./dist/index.d.ts",
+      "default": "./dist/index.js"
+    },
+    "./preview": {
+      "types": "./dist/preview.d.ts",
       "default": "./dist/preview.js"
     },
     "./preset": "./dist/preset.js",
@@ -73,7 +77,8 @@
       "src/manager.tsx"
     ],
     "previewEntries": [
-      "src/preview.ts"
+      "src/preview.ts",
+      "src/index.ts"
     ],
     "nodeEntries": [
       "src/preset.ts"
