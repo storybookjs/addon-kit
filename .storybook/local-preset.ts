@@ -11,4 +11,4 @@ export function managerEntries(entry = []) {
   return [...entry, fileURLToPath(import.meta.resolve("../dist/manager.js"))];
 }
 
-export * from "../src/preset.ts";
+export * from "../dist/preset.js";
