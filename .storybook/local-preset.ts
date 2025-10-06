@@ -10,3 +10,5 @@ export function previewAnnotations(entry = []) {
 export function managerEntries(entry = []) {
   return [...entry, fileURLToPath(import.meta.resolve("../dist/manager.js"))];
 }
+
+export * from "../src/preset.ts";
