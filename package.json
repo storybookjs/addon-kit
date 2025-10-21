@@ -38,6 +38,7 @@
     "build:watch": "npm run build -- --watch",
     "eject-ts": "zx scripts/eject-typescript.js",
     "postinstall": "node scripts/welcome.js",
+    "format": "prettier --write .",
     "prerelease": "zx scripts/prepublish-checks.js",
     "release": "npm run build && auto shipit",
     "start": "run-p build:watch \"storybook --quiet\"",

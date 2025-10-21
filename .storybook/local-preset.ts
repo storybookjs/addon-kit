@@ -1,14 +1,14 @@
-import { fileURLToPath } from "node:url";
+import { fileURLToPath } from 'node:url';
 
 /**
  * to load the built addon in this test Storybook
  */
 export function previewAnnotations(entry = []) {
-  return [...entry, fileURLToPath(import.meta.resolve("../dist/preview.js"))];
+  return [...entry, fileURLToPath(import.meta.resolve('../dist/preview.js'))];
 }
 
 export function managerEntries(entry = []) {
-  return [...entry, fileURLToPath(import.meta.resolve("../dist/manager.js"))];
+  return [...entry, fileURLToPath(import.meta.resolve('../dist/manager.js'))];
 }
 
-export * from "../dist/preset.js";
+export * from '../dist/preset.js';

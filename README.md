@@ -151,8 +151,8 @@ const meta: Meta<typeof Button> = {
     myAddon: {
       exampleParameter: true,
       // See API section below for available parameters
-    }
-  }
+    },
+  },
 };
 
 export default meta;
@@ -183,14 +183,14 @@ registering the addon, like so:
 // .storybook/main.ts
 
 // Replace your-framework with the framework you are using (e.g., react-webpack5, vue3-vite)
-import type { StorybookConfig } from "@storybook/your-framework";
+import type { StorybookConfig } from '@storybook/your-framework';
 
 const config: StorybookConfig = {
   // ...rest of config
   addons: [
-    "@storybook/addon-docs",
+    '@storybook/addon-docs',
     {
-      name: "my-addon",
+      name: 'my-addon',
       options: {
         // 👈 options for my-addon go here
       },

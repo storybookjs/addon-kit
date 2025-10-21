@@ -1,22 +1,15 @@
-import { useEffect, useGlobals } from "storybook/preview-api";
-import type {
-  Renderer,
-  StoryContext,
-  PartialStoryFn as StoryFunction,
-} from "storybook/internal/types";
+import { useEffect, useGlobals } from 'storybook/preview-api';
+import type { Renderer, StoryContext, PartialStoryFn as StoryFunction } from 'storybook/internal/types';
 
-import { KEY } from "./constants";
+import { KEY } from './constants';
 
-export const withGlobals = (
-  StoryFn: StoryFunction<Renderer>,
-  context: StoryContext<Renderer>,
-) => {
+export const withGlobals = (StoryFn: StoryFunction<Renderer>, context: StoryContext<Renderer>) => {
   const [globals] = useGlobals();
   const myAddon = globals[KEY];
   const canvas = context.canvasElement as ParentNode;
 
   // Is the addon being used in the docs panel
-  const isInDocs = context.viewMode === "docs";
+  const isInDocs = context.viewMode === 'docs';
 
   useEffect(() => {
     if (!isInDocs) {
@@ -34,13 +27,11 @@ export const withGlobals = (
  * But there are use cases
  */
 function addExtraContentToStory(canvas: ParentNode, state: Object) {
-  const preElement =
-    canvas.querySelector(`[data-id="${KEY}"]`) ||
-    canvas.appendChild(document.createElement("pre"));
+  const preElement = canvas.querySelector(`[data-id="${KEY}"]`) || canvas.appendChild(document.createElement('pre'));
 
-  preElement.setAttribute("data-id", KEY);
+  preElement.setAttribute('data-id', KEY);
   preElement.setAttribute(
-    "style",
+    'style',
     `
     margin-top: 1rem;
     padding: 1rem;

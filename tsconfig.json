@@ -2,12 +2,12 @@
   "compilerOptions": {
     "esModuleInterop": true,
     "skipLibCheck": true,
-    "target": "es2023", // Node 20 according to https://github.com/microsoft/TypeScript/wiki/Node-Target-Mapping#node-20
+    "target": "esnext", // Node 20 according to https://github.com/microsoft/TypeScript/wiki/Node-Target-Mapping#node-20
     "allowJs": true,
     "resolveJsonModule": true,
     "moduleDetection": "force",
     "moduleResolution": "bundler",
-    "module": "esnext",
+    "module": "preserve",
     "jsx": "react",
     "isolatedModules": true,
     "verbatimModuleSyntax": true,

@@ -1,5 +1,5 @@
-import { definePreviewAddon } from "storybook/internal/csf";
+import { definePreviewAddon } from 'storybook/internal/csf';
 
-import addonAnnotations from "./preview";
+import addonAnnotations from './preview';
 
 export default () => definePreviewAddon(addonAnnotations);
