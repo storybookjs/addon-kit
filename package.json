@@ -45,9 +45,9 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "devDependencies": {
-    "@storybook/addon-docs": "^10.0.0-beta.0",
+    "@storybook/addon-docs": "next",
     "@storybook/icons": "^1.4.0",
-    "@storybook/react-vite": "^10.0.0-beta.0",
+    "@storybook/react-vite": "next",
     "@types/node": "^20",
     "@types/react": "^18.2.65",
     "@types/react-dom": "^18.2.21",
@@ -59,7 +59,7 @@
     "prompts": "^2.4.2",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "storybook": "^10.0.0-beta.0",
+    "storybook": "next",
     "ts-dedent": "^2.2.0",
     "tsup": "^8.5.0",
     "typescript": "^5.8.3",
