@@ -17,7 +17,7 @@
     "noImplicitAny": true,
     "lib": ["esnext", "dom", "dom.iterable"],
     "baseUrl": ".",
-    "rootDir": "./src"
+    "rootDir": "."
   },
   "include": ["src/**/*", "tsup.config.ts"]
 }
