@@ -103,11 +103,6 @@
   },
   "packageManager": "pnpm@10.0.0",
   "pnpm": {
-    "peerDependencyRules": {
-      "ignoreMissing": [
-        "storybook"
-      ]
-    },
     "onlyBuiltDependencies": [
       "esbuild"
     ]
