@@ -5,7 +5,7 @@ on: [push]
 jobs:
   release:
     runs-on: ubuntu-latest
-    if: "!contains(github.event.head_commit.message, 'ci skip') && !contains(github.event.head_commit.message, 'skip ci') && github.repository.name != 'addon-kit'"
+    if: "!contains(github.event.head_commit.message, 'ci skip') && !contains(github.event.head_commit.message, 'skip ci') && github.repository != 'storybookjs/addon-kit'"
     steps:
       - name: Checkout
         uses: actions/checkout@v4
