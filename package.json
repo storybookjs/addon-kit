@@ -23,6 +23,7 @@
     },
     "./preset": "./dist/preset.js",
     "./manager": "./dist/manager.js",
+    "./manager-helpers": "./dist/manager-helpers.js",
     "./package.json": "./package.json"
   },
   "files": [
@@ -75,7 +76,8 @@
   },
   "bundler": {
     "managerEntries": [
-      "src/manager.tsx"
+      "src/manager.tsx",
+      "src/manager-helpers.tsx"
     ],
     "previewEntries": [
       "src/preview.ts",
