@@ -16,7 +16,7 @@ export const RequestDataButton = styled(Button)({
   marginTop: '1rem',
 });
 
-export const Panel: React.FC<PanelProps> = memo(function MyPanel(props) {
+export const Panel: React.FC<PanelProps> = memo(function MyPanel(props: PanelProps) {
   const theme = useTheme();
 
   // https://storybook.js.org/docs/react/addons/addons-api#useaddonstate
