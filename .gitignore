@@ -4,5 +4,3 @@ storybook-static/
 build-storybook.log
 .DS_Store
 .env
-!yarn.lock
-.yarn/install-state.gz
