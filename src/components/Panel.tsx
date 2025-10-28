@@ -1,22 +1,22 @@
-import React, { Fragment, memo, useCallback, useState } from "react";
-import { Result } from "src/types";
-import { AddonPanel } from "storybook/internal/components";
-import { Button, Placeholder, TabsState } from "storybook/internal/components";
-import { useChannel } from "storybook/manager-api";
-import { styled, useTheme } from "storybook/theming";
+import React, { Fragment, memo, useCallback, useState } from 'react';
+import type { Result } from 'src/types';
+import { AddonPanel } from 'storybook/internal/components';
+import { Button, Placeholder, TabsState } from 'storybook/internal/components';
+import { useChannel } from 'storybook/manager-api';
+import { styled, useTheme } from 'storybook/theming';
 
-import { EVENTS } from "../constants";
-import { List } from "./List";
+import { EVENTS } from '../constants';
+import { List } from './List';
 
 interface PanelProps {
-  active: boolean;
+  active?: boolean;
 }
 
 export const RequestDataButton = styled(Button)({
-  marginTop: "1rem",
+  marginTop: '1rem',
 });
 
-export const Panel: React.FC<PanelProps> = memo(function MyPanel(props) {
+export const Panel: React.FC<PanelProps> = memo(function MyPanel(props: PanelProps) {
   const theme = useTheme();
 
   // https://storybook.js.org/docs/react/addons/addons-api#useaddonstate
@@ -37,30 +37,20 @@ export const Panel: React.FC<PanelProps> = memo(function MyPanel(props) {
   }, [emit]);
 
   return (
-    <AddonPanel {...props}>
-      <TabsState
-        initial="overview"
-        backgroundColor={theme.background.hoverable}
-      >
+    <AddonPanel active={props.active ?? false}>
+      <TabsState initial="overview" backgroundColor={theme.background.hoverable}>
         <div id="overview" title="Overview" color={theme.color.positive}>
           <Placeholder>
             <Fragment>
-              Addons can gather details about how a story is rendered. This is
-              panel uses a tab pattern. Click the button below to fetch data for
-              the other two tabs.
+              Addons can gather details about how a story is rendered. This is panel uses a tab pattern. Click the
+              button below to fetch data for the other two tabs.
             </Fragment>
             <Fragment>
-              <RequestDataButton onClick={fetchData}>
-                Request data
-              </RequestDataButton>
+              <RequestDataButton onClick={fetchData}>Request data</RequestDataButton>
             </Fragment>
           </Placeholder>
         </div>
-        <div
-          id="div"
-          title={`${divs.length} Divs`}
-          color={theme.color.negative}
-        >
+        <div id="div" title={`${divs.length} Divs`} color={theme.color.negative}>
           {divs.length > 0 ? (
             <Placeholder>
               <p>The following divs have less than 2 childNodes</p>
@@ -77,11 +67,7 @@ export const Panel: React.FC<PanelProps> = memo(function MyPanel(props) {
             </Placeholder>
           )}
         </div>
-        <div
-          id="all"
-          title={`${styled.length} All`}
-          color={theme.color.warning}
-        >
+        <div id="all" title={`${styled.length} All`} color={theme.color.warning}>
           {styled.length > 0 ? (
             <Placeholder>
               <p>The following elements have a style attribute</p>

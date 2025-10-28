@@ -3,27 +3,59 @@ name: Build
 on: [push]
 
 jobs:
-  release:
+  lint:
     runs-on: ubuntu-latest
     if: "!contains(github.event.head_commit.message, 'ci skip') && !contains(github.event.head_commit.message, 'skip ci')"
+    strategy:
+      matrix:
+        node-version: [20.19, 22.12]
     steps:
-      - uses: actions/checkout@v4
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
 
-      - name: Prepare repository
-        run: git fetch --unshallow --tags
+      - name: Install pnpm
+        uses: pnpm/action-setup@v4
 
-      - name: Use Node.js 20.x
+      - name: Use Node.js ${{ matrix.node-version }}
         uses: actions/setup-node@v4
         with:
-          node-version: 20.x
+          node-version: ${{ matrix.node-version }}
+          cache: 'pnpm'
 
       - name: Install dependencies
-        run: npm install --ignore-scripts
+        run: pnpm install
 
-      - name: Build
-        run: |
-          npm run build
+      - name: Check for linter errors
+        run: pnpm lint
+
+  build:
+    runs-on: ubuntu-latest
+    if: "!contains(github.event.head_commit.message, 'ci skip') && !contains(github.event.head_commit.message, 'skip ci')"
+    strategy:
+      matrix:
+        node-version: [20.19, 22.12]
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Install pnpm
+        uses: pnpm/action-setup@v4
+
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ matrix.node-version }}
+          cache: 'pnpm'
+
+      - name: Install dependencies
+        run: pnpm install
+
+      - name: Build addon
+        run: pnpm build
 
       - name: Build Storybook
-        run: |
-          npm run build-storybook
+        run: pnpm build-storybook

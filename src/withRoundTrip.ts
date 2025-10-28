@@ -1,8 +1,8 @@
-import { Result } from "src/types";
-import { useEffect, useChannel } from "storybook/preview-api";
-import type { DecoratorFunction } from "storybook/internal/types";
+import { Result } from 'src/types';
+import { useEffect, useChannel } from 'storybook/preview-api';
+import type { DecoratorFunction } from 'storybook/internal/types';
 
-import { EVENTS } from "./constants";
+import { EVENTS } from './constants';
 
 /**
  * This is an example of a function that performs some sort of analysis on the
@@ -11,15 +11,15 @@ import { EVENTS } from "./constants";
  * - are divs with fewer than 2 childNodes
  */
 const check = (canvas: ParentNode = globalThis.document): Result => {
-  const divs = canvas.querySelectorAll("div");
-  const all = canvas.querySelectorAll("*");
+  const divs = canvas.querySelectorAll('div');
+  const all = canvas.querySelectorAll('*');
 
   return {
     divs: Array.from(divs)
       .filter((element) => element.childNodes.length < 2)
       .map((div) => div.getBoundingClientRect()),
     styled: Array.from(all)
-      .filter((element) => element.hasAttribute("style"))
+      .filter((element) => element.hasAttribute('style'))
       .map((element) => element.getBoundingClientRect()),
   };
 };

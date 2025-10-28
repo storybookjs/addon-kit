@@ -13,84 +13,81 @@ const __dirname = dirname(__filename);
 // CLI questions
 const questions = [
   {
-    type: "text",
-    name: "authorName",
-    initial: "",
-    message: "What is the package author name?*",
-    validate: (name) => (name === "" ? "Name can't be empty" : true),
+    type: 'text',
+    name: 'authorName',
+    initial: '',
+    message: 'What is the package author name?*',
+    validate: (name) => (name === '' ? "Name can't be empty" : true),
   },
   {
-    type: "text",
-    name: "authorEmail",
-    initial: "",
-    message: "What is the package author email?",
+    type: 'text',
+    name: 'authorEmail',
+    initial: '',
+    message: 'What is the package author email?',
   },
   {
-    type: "text",
-    name: "packageName",
-    message: "What is the addon package name (eg: storybook-addon-something)?*",
-    validate: (name) => (name === "" ? "Package name can't be empty" : true),
+    type: 'text',
+    name: 'packageName',
+    message: 'What is the addon package name (eg: storybook-addon-something)?*',
+    validate: (name) => (name === '' ? "Package name can't be empty" : true),
   },
   {
-    type: "text",
-    name: "displayName",
-    message:
-      "What is the addon display name (this will be used in the addon catalog)?*",
+    type: 'text',
+    name: 'displayName',
+    message: 'What is the addon display name (this will be used in the addon catalog)?*',
     validate: (name) =>
-      name === ""
+      name === ''
         ? "Display name can't be empty. For more info, see: https://storybook.js.org/docs/react/addons/addon-catalog#addon-metadata"
         : true,
   },
   {
-    type: "text",
-    name: "addonDescription",
-    initial: "",
-    message: "Write a short description of the addon*",
-    validate: (name) => (name === "" ? "Description can't be empty" : true),
+    type: 'text',
+    name: 'addonDescription',
+    initial: '',
+    message: 'Write a short description of the addon*',
+    validate: (name) => (name === '' ? "Description can't be empty" : true),
   },
   {
-    type: "text",
-    name: "repoUrl",
-    message: "Git repo URL for your addon package (https://github.com/...)*",
-    validate: (url) => (url === "" ? "URL can't be empty" : true),
+    type: 'text',
+    name: 'repoUrl',
+    message: 'Git repo URL for your addon package (https://github.com/...)*',
+    validate: (url) => (url === '' ? "URL can't be empty" : true),
   },
   {
-    type: "text",
-    name: "addonIcon",
-    initial:
-      "https://user-images.githubusercontent.com/321738/63501763-88dbf600-c4cc-11e9-96cd-94adadc2fd72.png",
-    message: "URL of your addon icon",
+    type: 'text',
+    name: 'addonIcon',
+    initial: 'https://user-images.githubusercontent.com/321738/63501763-88dbf600-c4cc-11e9-96cd-94adadc2fd72.png',
+    message: 'URL of your addon icon',
   },
   {
-    type: "list",
-    name: "keywords",
-    initial: "storybook-addons",
-    message: "Enter addon keywords (comma separated)",
-    separator: ",",
+    type: 'list',
+    name: 'keywords',
+    initial: 'storybook-addons',
+    message: 'Enter addon keywords (comma separated)',
+    separator: ',',
     format: (keywords) =>
       keywords
-        .concat(["storybook-addons"])
+        .concat(['storybook-addons'])
         .map((k) => `"${k}"`)
-        .join(", "),
+        .join(', '),
   },
   {
-    type: "list",
-    name: "supportedFrameworks",
-    initial:
-      "react, vue, angular, web-components, ember, html, svelte, preact, react-native",
-    message: "List of frameworks you support (comma separated)?",
-    separator: ",",
-    format: (frameworks) => frameworks.map((k) => `"${k}"`).join(", "),
+    type: 'list',
+    name: 'supportedFrameworks',
+    initial: 'react, vue, angular, web-components, ember, html, svelte, preact, react-native',
+    message: 'List of frameworks you support (comma separated)?',
+    separator: ',',
+    format: (frameworks) => frameworks.map((k) => `"${k}"`).join(', '),
   },
 ];
 
 const REPLACE_TEMPLATES = {
-  packageName: "storybook-addon-kit",
-  addonDescription: "everything you need to build a Storybook addon",
-  packageAuthor: "package-author",
-  repoUrl: "https://github.com/storybookjs/storybook-addon-kit",
+  packageName: 'storybook-addon-kit',
+  addonDescription: 'everything you need to build a Storybook addon',
+  packageAuthor: 'package-author',
+  repoUrl: 'https://github.com/storybookjs/storybook-addon-kit',
   keywords: `"storybook-addons"`,
-  displayName: "Addon Kit",
+  displayName: 'Addon Kit',
   supportedFrameworks: `"supported-frameworks"`,
 };
 
@@ -105,9 +102,9 @@ const main = async () => {
         dedent`
         Welcome to Storybook addon-kit!
         Please answer the following questions while we prepare this project for you:\n
-      `
-      )
-    )
+      `,
+      ),
+    ),
   );
 
   const {
@@ -124,18 +121,18 @@ const main = async () => {
   if (!authorName || !packageName) {
     console.log(
       `\nProcess canceled by the user. Feel free to run ${bold(
-        "npm run postinstall"
-      )} to execute the installation steps again!`
+        'npm run postinstall',
+      )} to execute the installation steps again!`,
     );
     process.exit(0);
   }
 
-  const authorField = authorName + (authorEmail ? ` <${authorEmail}>` : "");
+  const authorField = authorName + (authorEmail ? ` <${authorEmail}>` : '');
 
   const packageJson = resolve(__dirname, `../package.json`);
 
   console.log(`\n👷 Updating package.json...`);
-  let packageJsonContents = await readFile(packageJson, "utf-8");
+  let packageJsonContents = await readFile(packageJson, 'utf-8');
 
   packageJsonContents = packageJsonContents
     .replace(REPLACE_TEMPLATES.packageName, packageName)
@@ -149,9 +146,9 @@ const main = async () => {
 
   await writeFile(packageJson, packageJsonContents);
 
-  console.log("📝 Updating the README...");
+  console.log('📝 Updating the README...');
   const readme = resolve(__dirname, `../README.md`);
-  let readmeContents = await readFile(readme, "utf-8");
+  let readmeContents = await readFile(readme, 'utf-8');
 
   const regex = /<\!-- README START -->([\s\S]*)<\!-- README END -->/g;
 
@@ -160,7 +157,7 @@ const main = async () => {
     dedent`
     # Storybook Addon ${displayName}
     ${addonDescription}
-    `
+    `,
   );
 
   await writeFile(readme, readmeContents);
@@ -172,13 +169,15 @@ const main = async () => {
     dedent`\n
       🚀 All done! Run \`npm run start\` to get started.
 
-      Thanks for using this template, ${authorName.split(" ")[0]}! ❤️
+      Thanks for using this template, ${authorName.split(' ')[0]}! ❤️
 
       Feel free to open issues in case there are bugs/feature requests at:
 
-      ${bold(blue("https://github.com/storybookjs/addon-kit"))}\n
-    `
+      ${bold(blue('https://github.com/storybookjs/addon-kit'))}\n
+    `,
   );
 };
 
-main().catch((e) => console.log(`Something went wrong: ${e}`));
+if (!process.env.CI) {
+  main().catch((e) => console.log(`Something went wrong: ${e}`));
+}

@@ -1,6 +1,6 @@
-import { ArrowDownIcon } from "@storybook/icons";
-import React, { Fragment, useState } from "react";
-import { styled } from "storybook/theming";
+import { ArrowDownIcon } from '@storybook/icons';
+import React, { Fragment, useState } from 'react';
+import { styled } from 'storybook/theming';
 
 type Item = {
   title: string;
@@ -16,17 +16,17 @@ interface ListProps {
 }
 
 const ListWrapper = styled.ul({
-  listStyle: "none",
+  listStyle: 'none',
   fontSize: 14,
   padding: 0,
   margin: 0,
 });
 
 const Wrapper = styled.div(({ theme }) => ({
-  display: "flex",
-  width: "100%",
+  display: 'flex',
+  width: '100%',
   borderBottom: `1px solid ${theme.appBorderColor}`,
-  "&:hover": {
+  '&:hover': {
     background: theme.background.hoverable,
   },
 }));
@@ -37,23 +37,23 @@ const Icon = styled(ArrowDownIcon)(({ theme }) => ({
   minWidth: 10,
   color: theme.color.mediumdark,
   marginRight: 10,
-  transition: "transform 0.1s ease-in-out",
-  alignSelf: "center",
-  display: "inline-flex",
+  transition: 'transform 0.1s ease-in-out',
+  alignSelf: 'center',
+  display: 'inline-flex',
 }));
 
 const HeaderBar = styled.div(({ theme }) => ({
   padding: theme.layoutMargin,
   paddingLeft: theme.layoutMargin - 3,
-  background: "none",
-  color: "inherit",
-  textAlign: "left",
-  cursor: "pointer",
-  borderLeft: "3px solid transparent",
-  width: "100%",
+  background: 'none',
+  color: 'inherit',
+  textAlign: 'left',
+  cursor: 'pointer',
+  borderLeft: '3px solid transparent',
+  width: '100%',
 
-  "&:focus": {
-    outline: "0 none",
+  '&:focus': {
+    outline: '0 none',
     borderLeft: `3px solid ${theme.color.secondary}`,
   },
 }));
@@ -62,8 +62,8 @@ const Description = styled.div(({ theme }) => ({
   padding: theme.layoutMargin,
   background: theme.background.content,
   fontFamily: theme.typography.fonts.mono,
-  whiteSpace: "pre-wrap",
-  textAlign: "left",
+  whiteSpace: 'pre-wrap',
+  textAlign: 'left',
 }));
 
 export const ListItem: React.FC<ListItemProps> = ({ item }) => {

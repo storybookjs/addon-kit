@@ -51,5 +51,5 @@ console.log(
 TypeScript Ejection complete!`,
   chalk.green`
 Addon code converted with JS. The TypeScript build setup is still available in case you want to adopt TypeScript in the future.
-`
+`,
 );
