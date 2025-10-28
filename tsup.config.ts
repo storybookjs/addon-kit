@@ -8,7 +8,7 @@ export default defineConfig(async () => {
   //  ...
   //   "bundler": {
   //     "managerEntries": ["./src/manager.ts"],
-  //     "previewEntries": ["./src/preview.ts"]
+  //     "previewEntries": ["./src/preview.ts", "./src/index.ts"]
   //     "nodeEntries": ["./src/preset.ts"]
   //   }
   // }
