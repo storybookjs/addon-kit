@@ -1,6 +1,6 @@
-import { addons } from "storybook/manager-api";
+import { addons } from 'storybook/manager-api';
 
-import { renderLabel } from "../dist/manager-helpers.js";
+import { renderLabel } from '../src/manager-helpers';
 
 /*
  * This is an example of opt-in usage of addon exports. Your users can choose to
