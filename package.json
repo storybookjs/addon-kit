@@ -81,7 +81,7 @@
     "zx": "^8.7.1"
   },
   "peerDependencies": {
-    "storybook": "*"
+    "storybook": "^0.0.0-0 || *"
   },
   "publishConfig": {
     "access": "public",
