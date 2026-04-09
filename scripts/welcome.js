@@ -85,7 +85,7 @@ const REPLACE_TEMPLATES = {
   packageName: 'storybook-addon-kit',
   addonDescription: 'everything you need to build a Storybook addon',
   packageAuthor: 'package-author',
-  repoUrl: 'https://github.com/storybookjs/storybook-addon-kit',
+  repoUrl: 'git+https://github.com/storybookjs/addon-kit.git',
   keywords: `"storybook-addons"`,
   displayName: 'Addon Kit',
   supportedFrameworks: `"supported-frameworks"`,
