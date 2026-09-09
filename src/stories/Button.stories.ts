@@ -1,10 +1,10 @@
-import type { Meta, StoryObj } from '@storybook/react-vite';
+import preview from '../../.storybook/preview';
 
 import { Button } from './Button';
 import { fn } from 'storybook/test';
 
 // More on how to set up stories at: https://storybook.js.org/docs/react/writing-stories/introduction#default-export
-const meta: Meta<typeof Button> = {
+const meta = preview.meta({
   title: 'Example/Button',
   component: Button,
   // More on argTypes: https://storybook.js.org/docs/react/api/argtypes
@@ -22,36 +22,33 @@ const meta: Meta<typeof Button> = {
 </MyComponent>
 `,
   },
-};
-
-export default meta;
-type Story = StoryObj<typeof Button>;
+});
 
 // More on component templates: https://storybook.js.org/docs/react/writing-stories/introduction#using-args
-export const Primary: Story = {
+export const Primary = meta.story({
   // More on args: https://storybook.js.org/docs/react/writing-stories/args
   args: {
     primary: true,
     label: 'Button',
   },
-};
+});
 
-export const Secondary: Story = {
+export const Secondary = meta.story({
   args: {
     label: 'Button',
   },
-};
+});
 
-export const Large: Story = {
+export const Large = meta.story({
   args: {
     size: 'large',
     label: 'Button',
   },
-};
+});
 
-export const Small: Story = {
+export const Small = meta.story({
   args: {
     size: 'small',
     label: 'Button',
   },
-};
+});
