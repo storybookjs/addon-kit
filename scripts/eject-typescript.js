@@ -22,7 +22,7 @@ console.log(chalk.green`
 💅 Format the newly created .js files...
 
 `);
-await $`prettier --write ./src`;
+await $`oxfmt ./src`;
 
 // Add in minimal files required for the TS build setup
 console.log(chalk.green`
@@ -30,7 +30,7 @@ console.log(chalk.green`
 ➕ Add minimal files required for the TS build setup
 
 `);
-await $`prettier --write ./src`;
+await $`oxfmt ./src`;
 await $`touch ./src/dummy.ts`;
 await $`printf "export {};" >> ./src/dummy.ts`;
 
