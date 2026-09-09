@@ -17,7 +17,7 @@ export const withGlobals = (StoryFn: StoryFunction<Renderer>, context: StoryCont
         myAddon,
       });
     }
-  }, [myAddon, isInDocs]);
+  }, [canvas, myAddon, isInDocs]);
 
   return StoryFn();
 };
