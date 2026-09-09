@@ -107,13 +107,23 @@ To get started, replace this README with the content in this sample template.
 
 ## Installation
 
+Run the following command to install and register the addon:
+
+```sh
+npx storybook add my-addon
+```
+
+This installs the package and registers the addon in your Storybook configuration for you.
+
+### Manual install
+
 First, install the package.
 
 ```sh
 npm install --save-dev my-addon
 ```
 
-Then, register it as an addon in `.storybook/main.js`.
+Then, register it as an addon in `.storybook/main.ts`.
 
 ```ts
 // .storybook/main.ts
@@ -124,12 +134,28 @@ import type { StorybookConfig } from '@storybook/your-framework';
 const config: StorybookConfig = {
   // ...rest of config
   addons: [
-    '@storybook/addon-docs'
+    '@storybook/addon-docs',
     'my-addon', // 👈 register the addon here
   ],
 };
 
 export default config;
+```
+
+Finally, register the addon's preview annotations in `.storybook/preview.ts`.
+
+```ts
+// .storybook/preview.ts
+
+// Replace your-framework with the framework you are using (e.g., react-vite, nextjs-vite)
+import { definePreview } from '@storybook/your-framework';
+
+import myAddon from 'my-addon';
+
+export default definePreview({
+  // ...rest of preview
+  addons: [myAddon()], // 👈 register the addon here
+});
 ```
 
 ## Usage
