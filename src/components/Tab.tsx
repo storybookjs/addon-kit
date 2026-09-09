@@ -31,11 +31,14 @@ export const Tab: React.FC<TabProps> = ({ active }) => {
   const [globals, updateGlobals] = useGlobals();
   const value = globals[KEY];
 
-  const update = useCallback((newValue: typeof value) => {
-    updateGlobals({
-      [KEY]: newValue,
-    });
-  }, []);
+  const update = useCallback(
+    (newValue: typeof value) => {
+      updateGlobals({
+        [KEY]: newValue,
+      });
+    },
+    [updateGlobals],
+  );
 
   if (!active) {
     return null;

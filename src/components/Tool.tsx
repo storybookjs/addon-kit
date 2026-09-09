@@ -14,7 +14,7 @@ export const Tool = memo(function MyAddonSelector({ api }: { api: API }) {
     updateGlobals({
       [KEY]: !isActive,
     });
-  }, [isActive]);
+  }, [isActive, updateGlobals]);
 
   useEffect(() => {
     api.setAddonShortcut(ADDON_ID, {

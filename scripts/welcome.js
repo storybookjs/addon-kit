@@ -1,5 +1,3 @@
-/* eslint-disable eslint-comments/disable-enable-pair */
-/* eslint-disable no-console */
 import prompts from 'prompts';
 import { dedent } from 'ts-dedent';
 import { dirname, resolve } from 'path';

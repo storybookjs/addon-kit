@@ -1,0 +1,11 @@
+{
+  "$schema": "./node_modules/oxfmt/configuration_schema.json",
+  "singleQuote": true,
+  "trailingComma": "all",
+  "arrowParens": "always",
+  "printWidth": 120,
+  "tabWidth": 2,
+  "useTabs": false,
+  "sortPackageJson": false,
+  "ignorePatterns": ["dist", "pnpm-lock.yaml", "node_modules", "storybook-static"]
+}
