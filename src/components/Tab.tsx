@@ -1,6 +1,6 @@
 import { LightningIcon } from '@storybook/icons';
 import React, { useCallback } from 'react';
-import { Code, H1, IconButton, Link } from 'storybook/internal/components';
+import { Code, H1, Link, ToggleButton } from 'storybook/internal/components';
 import { useGlobals, useParameter } from 'storybook/manager-api';
 import { styled } from 'storybook/theming';
 
@@ -57,14 +57,17 @@ export const Tab: React.FC<TabProps> = ({ active }) => {
         <Code>{config}</Code>
         <p>
           You can also have interactive UI here, like a button that updates a global:{' '}
-          <IconButton
-            active={!!value}
+          <ToggleButton
+            pressed={!!value}
+            padding="small"
+            variant="ghost"
+            ariaLabel="Toggle the addon global"
             onClick={() => {
               update(!value);
             }}
           >
             <LightningIcon />
-          </IconButton>
+          </ToggleButton>
         </p>
       </TabInner>
     </TabWrapper>
