@@ -46,11 +46,10 @@ This will convert all code to JS. It is a destructive process, so we recommended
 
 ![Demo](https://user-images.githubusercontent.com/42671/107857205-e7044380-6dfa-11eb-8718-ad02e3ba1a3f.gif)
 
-The addon code lives in `src`. It demonstrates all core addon related concepts. The three [UI paradigms](https://storybook.js.org/docs/react/addons/addon-types#ui-based-addons)
+The addon code lives in `src`. It demonstrates all core addon related concepts. The two [UI paradigms](https://storybook.js.org/docs/react/addons/addon-types#ui-based-addons)
 
 - `src/Tool.tsx`
 - `src/Panel.tsx`
-- `src/Tab.tsx`
 
 Which, along with the addon itself, are registered in `src/manager.ts`.
 
@@ -58,7 +57,6 @@ Managing State and interacting with a story:
 
 - `src/withGlobals.ts` & `src/Tool.tsx` demonstrates how to use `useGlobals` to manage global state and modify the contents of a Story.
 - `src/withRoundTrip.ts` & `src/Panel.tsx` demonstrates two-way communication using channels.
-- `src/Tab.tsx` demonstrates how to use `useParameter` to access the current story's parameters.
 
 Your addon might use one or more of these patterns. Feel free to delete unused code. Update `src/manager.ts` and `src/preview.ts` accordingly.
 
@@ -128,18 +126,16 @@ Then, register it as an addon in `.storybook/main.ts`.
 ```ts
 // .storybook/main.ts
 
-// Replace your-framework with the framework you are using (e.g., react-webpack5, vue3-vite)
-import type { StorybookConfig } from '@storybook/your-framework';
+// Replace your-framework with the framework you are using (e.g., react-vite, nextjs-vite)
+import { defineMain } from '@storybook/your-framework/node';
 
-const config: StorybookConfig = {
+export default defineMain({
   // ...rest of config
   addons: [
     '@storybook/addon-docs',
     'my-addon', // 👈 register the addon here
   ],
-};
-
-export default config;
+});
 ```
 
 Finally, register the addon's preview annotations in `.storybook/preview.ts`.
@@ -166,12 +162,11 @@ component level, as below, to affect all stories in the file, or you can do it f
 ```ts
 // Button.stories.ts
 
-// Replace your-framework with the name of your framework
-import type { Meta } from '@storybook/your-framework';
+import preview from '#.storybook/preview';
 
 import { Button } from './Button';
 
-const meta: Meta<typeof Button> = {
+const meta = preview.meta({
   component: Button,
   parameters: {
     myAddon: {
@@ -179,7 +174,7 @@ const meta: Meta<typeof Button> = {
       // See API section below for available parameters
     },
   },
-};
+});
 
 export default meta;
 ```
@@ -208,10 +203,10 @@ registering the addon, like so:
 ```ts
 // .storybook/main.ts
 
-// Replace your-framework with the framework you are using (e.g., react-webpack5, vue3-vite)
-import type { StorybookConfig } from '@storybook/your-framework';
+// Replace your-framework with the framework you are using (e.g., react-vite, nextjs-vite)
+import { defineMain } from '@storybook/your-framework/node';
 
-const config: StorybookConfig = {
+export default defineMain({
   // ...rest of config
   addons: [
     '@storybook/addon-docs',
@@ -222,9 +217,7 @@ const config: StorybookConfig = {
       },
     },
   ],
-};
-
-export default config;
+});
 ```
 
 #### `useExperimentalBehavior`
