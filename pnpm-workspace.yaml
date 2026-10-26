@@ -1,2 +1,6 @@
 onlyBuiltDependencies:
   - esbuild
+
+# Drop once a published storybook exports ./theming/emotion. Alpha 11.0.0-alpha.0's manager builder maps that import onto __STORYBOOK_THEMING__, which still provides styled and useTheme.
+patchedDependencies:
+  storybook@11.0.0-alpha.0: patches/storybook@11.0.0-alpha.0.patch
