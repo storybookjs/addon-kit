@@ -1,0 +1,13 @@
+diff --git a/dist/_node-chunks/builder-manager-HET6E6ST.js b/dist/_node-chunks/builder-manager-HET6E6ST.js
+index 8db966d357918fab7aa5f7c8cd511f351e7ddb29..2d1d2bef5877b71944c03aae88b9cccf380892ae 100644
+--- a/dist/_node-chunks/builder-manager-HET6E6ST.js
++++ b/dist/_node-chunks/builder-manager-HET6E6ST.js
+@@ -1500,7 +1500,7 @@ var CORE_DIR_ORIGIN = join(resolvePackageDir("storybook"), "dist/manager"), isRo
+     jsxImportSource: "react",
+     tsconfig: tsconfigPath,
+     legalComments: "external",
+-    plugins: [globalExternals(globalsModuleInfoMap)],
++    plugins: [globalExternals({ ...globalsModuleInfoMap, "storybook/theming/emotion": globalsModuleInfoMap["storybook/theming"] })],
+     banner: {
+       js: "try{"
+     },

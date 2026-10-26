@@ -1,6 +1,6 @@
 import { ArrowDownIcon } from '@storybook/icons';
 import React, { Fragment, useState } from 'react';
-import { styled } from 'storybook/theming';
+import { styled } from 'storybook/theming/emotion';
 
 type Item = {
   title: string;
