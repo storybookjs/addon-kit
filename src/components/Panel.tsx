@@ -2,7 +2,7 @@ import React, { Fragment, memo, useCallback, useState } from 'react';
 import type { Result } from '../types';
 import { AddonPanel, Button, Placeholder, TabsView } from 'storybook/internal/components';
 import { useChannel } from 'storybook/manager-api';
-import { styled, useTheme } from 'storybook/theming';
+import { styled, useTheme } from 'storybook/theming/emotion';
 
 import { EVENTS } from '../constants';
 import { List } from './List';
