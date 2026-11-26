@@ -1,8 +1,30 @@
 <!-- README START -->
+<h1 align="center">Storybook Addon Kit</h1>
 
-# Storybook Addon Kit
+<p align="center">Simplify the creation of Storybook addons</p>
 
-Simplify the creation of Storybook addons
+<br/>
+
+<p align="center">
+  <a href="https://github.com/storybookjs/storybook/blob/main/LICENSE">
+    <img src="https://img.shields.io/github/license/storybookjs/storybook.svg?color=2A0481" alt="License" />
+  </a>
+  <a href="https://www.npmjs.com/package/storybook">
+    <img src="https://img.shields.io/npm/dw/storybook?style=flat&logo=npm&color=CB3837" alt="NPM downloads per week" />
+  </a>
+  <img src="https://img.shields.io/github/stars/storybookjs/storybook?style=flat&logo=github&color=181717" alt="" />
+  <a href="https://discord.gg/storybook">
+    <img src="https://img.shields.io/badge/discord-join-7289DA.svg?logo=discord&longCache=true&style=fla&logoColor=white" alt="Join our Discord" />
+  </a>
+  <a href="https://storybook.js.org/community/?ref=readme">
+    <img src="https://img.shields.io/badge/community-join-FF4785.svg?logo=storybook&logoColor=white" alt="Storybook Community" />
+  </a>
+  <a href="https://storybook.js.org/docs/contribute/?ref=readme">
+    <img src="https://img.shields.io/badge/docs-read-6F2CAC.svg?logo=storybook&logoColor=white" alt="Contribution Docs" />
+  </a>
+</p>
+
+## Features
 
 - 📝 Live-editing in development
 - ⚛️ React/JSX support
@@ -13,13 +35,11 @@ Simplify the creation of Storybook addons
 - 🛄 ESM-only, matching modern Storybook
 - 🛂 TypeScript by default with option to eject to JS
 
-### Migrating to a later Storybook version
-
-If you have an existing addon that you want to migrate to support the latest version of Storybook, you can check out the [addon migration guide](https://storybook.js.org/docs/addons/addon-migration-guide).
-
 ## Getting Started
 
 Click the **Use this template** button to get started.
+
+![Clicking Use this template, then Create a new repository, on the addon-kit repository page](media/use-template.gif)
 
 Clone your repository and install dependencies:
 
@@ -289,3 +309,7 @@ That will:
 - Bump the version
 - Push a release to GitHub and npm
 - Push a changelog to GitHub
+
+### Migrating to a later Storybook version
+
+If you have an existing addon that you want to migrate to support the latest version of Storybook, you can check out the [addon migration guide](https://storybook.js.org/docs/addons/addon-migration-guide).
