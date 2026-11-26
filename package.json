@@ -7,7 +7,7 @@
   ],
   "repository": {
     "type": "git",
-    "url": "https://github.com/storybookjs/storybook-addon-kit"
+    "url": "git+https://github.com/storybookjs/addon-kit.git"
   },
   "license": "MIT",
   "author": "package-author",
@@ -37,18 +37,21 @@
     "build": "tsup",
     "build-storybook": "storybook build",
     "build:watch": "npm run build -- --watch",
+    "changeset": "changeset",
     "eject-ts": "zx scripts/eject-typescript.js",
     "postinstall": "node scripts/welcome.js",
     "format": "prettier --write .",
     "lint": "eslint --cache .",
     "lint:fix": "pnpm lint --fix",
     "prerelease": "zx scripts/prepublish-checks.js",
-    "release": "npm run build && auto shipit",
+    "release": "pnpm build && pnpm changeset publish",
     "start": "run-p build:watch \"storybook --quiet\"",
     "storybook": "storybook dev -p 6006",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "devDependencies": {
+    "@changesets/changelog-github": "^0.5.1",
+    "@changesets/cli": "^2.29.6",
     "@eslint/js": "^9.36.0",
     "@storybook/addon-docs": "next",
     "@storybook/icons": "^2.0.0",
@@ -57,7 +60,6 @@
     "@types/react": "^18.2.65",
     "@types/react-dom": "^18.2.21",
     "@vitejs/plugin-react": "^4.7.0",
-    "auto": "^11.3.0",
     "boxen": "^8.0.1",
     "eslint": "^9.36.0",
     "eslint-config-prettier": "^10.1.8",
@@ -65,6 +67,7 @@
     "eslint-plugin-react": "^7.37.5",
     "eslint-plugin-storybook": "next",
     "npm-run-all2": "^8.0.4",
+    "pkg-pr-new": "^0.0.57",
     "prettier": "^3.6.2",
     "prompts": "^2.4.2",
     "react": "^18.2.0",
@@ -78,10 +81,11 @@
     "zx": "^8.7.1"
   },
   "peerDependencies": {
-    "storybook": "*"
+    "storybook": "^0.0.0-0 || *"
   },
   "publishConfig": {
-    "access": "public"
+    "access": "public",
+    "provenance": true
   },
   "bundler": {
     "managerEntries": [

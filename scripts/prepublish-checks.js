@@ -10,6 +10,12 @@ const packageJson = await readFile('./package.json', 'utf8').then(JSON.parse);
 
 const name = packageJson.name;
 const displayName = packageJson.storybook.displayName;
+const repositoryUrl =
+  typeof packageJson.repository === 'string' ? packageJson.repository : packageJson.repository?.url || '';
+const isOfficialAddonKitRepo =
+  name === 'storybook-addon-kit' &&
+  displayName === 'Addon Kit' &&
+  repositoryUrl.includes('github.com/storybookjs/addon-kit');
 
 let exitCode = 0;
 $.verbose = false;
@@ -17,7 +23,7 @@ $.verbose = false;
 /**
  * Check that meta data has been updated
  */
-if (name.includes('addon-kit') || displayName.includes('Addon Kit')) {
+if (!isOfficialAddonKitRepo && (name.includes('addon-kit') || displayName.includes('Addon Kit'))) {
   console.error(
     boxen(
       dedent`
@@ -41,7 +47,7 @@ if (name.includes('addon-kit') || displayName.includes('Addon Kit')) {
 const readmeTestStrings =
   '# Storybook Addon Kit|Click the \\*\\*Use this template\\*\\* button to get started.|https://user-images.githubusercontent.com/42671/106809879-35b32000-663a-11eb-9cdc-89f178b5273f.gif';
 
-if ((await $`cat README.md | grep -E ${readmeTestStrings}`.exitCode) == 0) {
+if (!isOfficialAddonKitRepo && (await $`cat README.md | grep -E ${readmeTestStrings}`.exitCode) == 0) {
   console.error(
     boxen(
       dedent`
