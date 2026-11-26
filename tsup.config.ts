@@ -39,7 +39,7 @@ export default defineConfig(async () => {
   /*
    manager entries are entries meant to be loaded into the manager UI
    they'll have manager-specific packages externalized and they won't be usable in node
-   they won't have types generated for them as they're usually loaded automatically by Storybook
+   the manager entry point doesn't need types generated, but manager helpers do as they are imported by end users
   */
   if (managerEntries.length) {
     configs.push({
@@ -47,6 +47,7 @@ export default defineConfig(async () => {
       entry: managerEntries,
       platform: 'browser',
       target: 'esnext', // we can use esnext for manager entries since Storybook will bundle the addon's manager entries again anyway
+      dts: true,
     });
   }
 
