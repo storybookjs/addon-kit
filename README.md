@@ -1,5 +1,12 @@
 <!-- README START -->
-<h1 align="center">Storybook Addon Kit</h1>
+<p align="center">
+  <a href="https://storybook.js.org/?ref=readme">
+    <picture>
+      <source media="(prefers-color-scheme: dark)" srcset="./media/addon-kit-dark.svg">
+      <img src="./media/addon-kit-light.svg" alt="Storybook Addon Kit" width="400" />
+    </picture>
+  </a>
+</p>
 
 <p align="center">Simplify the creation of Storybook addons</p>
 
@@ -9,10 +16,10 @@
   <a href="https://github.com/storybookjs/storybook/blob/main/LICENSE">
     <img src="https://img.shields.io/github/license/storybookjs/storybook.svg?color=2A0481" alt="License" />
   </a>
-  <a href="https://www.npmjs.com/package/storybook">
-    <img src="https://img.shields.io/npm/dw/storybook?style=flat&logo=npm&color=CB3837" alt="NPM downloads per week" />
+  <a href="https://storybook.js.org/addons/?ref=readme">
+    <img src="https://img.shields.io/badge/created-900+-FFAE00.svg?logo=fork&logoColor=white" alt="880 addons created" />
   </a>
-  <img src="https://img.shields.io/github/stars/storybookjs/storybook?style=flat&logo=github&color=181717" alt="" />
+  <img src="https://img.shields.io/github/stars/storybookjs/addon-kit?style=flat&color=181717&logo=github" alt="" />
   <a href="https://discord.gg/storybook">
     <img src="https://img.shields.io/badge/discord-join-7289DA.svg?logo=discord&longCache=true&style=fla&logoColor=white" alt="Join our Discord" />
   </a>
@@ -24,22 +31,57 @@
   </a>
 </p>
 
+<center>
+  <img src="https://raw.githubusercontent.com/storybookjs/addon-kit/refs/heads/next/media/demo.gif" alt="Demo of the example addon that ships with the addon kit" width="100%" />
+</center>
+
+<p align="center">
+The Storybook addon kit lets you extend Storybook's behavior, add your own UI presence, integrate with third-party services, or even integrate your custom frontend framework. Find out more at <a href="https://storybook.js.org/?ref=readme">storybook.js.org</a>!
+</p>
+
 ## Features
 
-- 📝 Live-editing in development
-- ⚛️ React/JSX support
-- 📦 Transpiling and bundling with [tsup](https://tsup.egoist.dev/)
-- 🏷 Plugin metadata
-- 🚢 Release management with [Auto](https://github.com/intuit/auto)
-- 🧺 Boilerplate and sample code
-- 🛄 ESM-only, matching modern Storybook
-- 🛂 TypeScript by default with option to eject to JS
+<table>
+  <tr>
+    <td width="33%" align="center" valign="top">
+      <h3>📝 Live-editing in development</h3>
+    </td>
+    <td width="33%" align="center" valign="top">
+      <h3>⚛️ React/JSX support</h3>
+    </td>
+    <td width="33%" align="center" valign="top">
+      <h3>🧺 Boilerplate and sample code</h3>
+    </td>
+  </tr>
+  <tr>
+    <td width="33%" align="center" valign="top">
+      <h3>🏷 Plugin metadata</h3>
+    </td>
+    <td width="33%" align="center" valign="top">
+      <h3>📦 Transpiling and bundling with <a href="https://tsup.egoist.dev/">tsup</a></h3>
+    </td>
+    <td width="33%" align="center" valign="top">
+      <h3>🚢 Release management with <a href="https://github.com/intuit/auto">Auto</a></h3>
+    </td>
+  </tr>
+  <tr>
+    <td width="33%" align="center" valign="top">
+      <h3>🛄 ESM-only, matching modern Storybook</h3>
+    </td>
+    <td width="33%" align="center" valign="top">
+      <h3>🛂 TypeScript by default with option to eject to JS</h3>
+    </td>
+    <td width="33%" align="center" valign="top">
+      <h3>🛟 <a href="https://storybook.js.org/docs/addons/addon-migration-guide">Migration guide</a> published every major</h3>
+    </td>
+  </tr>
+</table>
 
 ## Getting Started
 
 Click the **Use this template** button to get started.
 
-![Clicking Use this template, then Create a new repository, on the addon-kit repository page](media/use-template.gif)
+![Clicking Use this template, then Create a new repository, on the addon-kit repository page](https://raw.githubusercontent.com/storybookjs/addon-kit/refs/heads/next/media/media/use-template.gif)
 
 Clone your repository and install dependencies:
 
@@ -61,15 +103,7 @@ The postinstall script will ask you a few questions (package name, author, displ
 - `pnpm start` rebuilds the addon code in watch mode and starts the test Storybook
 - `pnpm build` builds and packages your addon code
 
-### Switch from TypeScript to JavaScript
-
-Don't want to use TypeScript? We offer a handy eject command: `pnpm eject-ts`
-
-This will convert all code to JS. It is a destructive process, so we recommended running this before you start writing any code.
-
 ## What's included?
-
-![Demo of the example addon that ships with the addon kit](media/demo.gif)
 
 The addon code lives in `src`. It demonstrates all core addon related concepts. The two [UI paradigms](https://storybook.js.org/docs/addons/addon-types#ui-based-addons)
 
@@ -310,6 +344,12 @@ That will:
 - Push a release to GitHub and npm
 - Push a changelog to GitHub
 
-### Migrating to a later Storybook version
+## Misc
 
-If you have an existing addon that you want to migrate to support the latest version of Storybook, you can check out the [addon migration guide](https://storybook.js.org/docs/addons/addon-migration-guide).
+### Switch from TypeScript to JavaScript
+
+Don't want to use TypeScript? We offer a handy eject command: `pnpm eject-ts`. This will convert all code to JS. It is a destructive process, so we recommended running this before you start writing any code.
+
+### Migrate to a later Storybook version
+
+To migrate an existing addon to support the latest version of Storybook, check out the [addon migration guide](https://storybook.js.org/docs/addons/addon-migration-guide).
