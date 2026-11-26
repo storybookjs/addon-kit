@@ -26,6 +26,13 @@
     "./manager-helpers": "./dist/manager-helpers.js",
     "./package.json": "./package.json"
   },
+  "imports": {
+    "#*": [
+      "./*",
+      "./*.ts",
+      "./*.tsx"
+    ]
+  },
   "files": [
     "dist/**/*",
     "README.md",

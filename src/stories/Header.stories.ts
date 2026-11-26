@@ -1,4 +1,4 @@
-import preview from '../../.storybook/preview';
+import preview from '#.storybook/preview';
 import { fn } from 'storybook/test';
 import { Header } from './Header';
 

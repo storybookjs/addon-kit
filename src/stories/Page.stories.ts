@@ -1,4 +1,4 @@
-import preview from '../../.storybook/preview';
+import preview from '#.storybook/preview';
 import { within, userEvent } from 'storybook/test';
 
 import { Page } from './Page';
