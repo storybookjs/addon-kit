@@ -2,7 +2,7 @@
   "compilerOptions": {
     "esModuleInterop": true,
     "skipLibCheck": true,
-    "target": "esnext", // Node 20 according to https://github.com/microsoft/TypeScript/wiki/Node-Target-Mapping#node-20
+    "target": "esnext",
     "allowJs": true,
     "resolveJsonModule": true,
     "moduleDetection": "force",
@@ -16,7 +16,6 @@
     "noImplicitOverride": true,
     "noImplicitAny": true,
     "lib": ["esnext", "dom", "dom.iterable"],
-    "baseUrl": ".",
     "rootDir": "."
   },
   "include": ["src/**/*", "tsup.config.ts"]
