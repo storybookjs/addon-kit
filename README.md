@@ -55,7 +55,7 @@ The Storybook addon kit lets you extend Storybook's behavior, add your own UI pr
   </tr>
   <tr>
     <td width="33%" align="center" valign="top">
-      <h3>🏷 Plugin metadata</h3>
+      <h3>🏷 Metadata for inclusion in the <a href="https://storybook.js.org/addons">addon catalog</a></h3>
     </td>
     <td width="33%" align="center" valign="top">
       <h3>📦 Transpiling and bundling with <a href="https://tsup.egoist.dev/">tsup</a></h3>
